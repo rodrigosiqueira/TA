@@ -129,3 +129,7 @@ sympy-plots-for-*.tex/
 *.tex~
 *.tex.backup
 
+# C files
+*.o
+*.bin
+*.ghc
