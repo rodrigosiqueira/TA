@@ -1,0 +1,147 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{pgf}
+\pgfdeclareimage[height=1cm]{myimage}{p1_q1.png}
+
+
+%opening   
+\title{ \textbf{Universidade de Brasília -- Faculdade do Gama \\ Sistemas embarcados \\ Lista 1 }}
+\date{Setembro - 2011}
+
+\begin{document}
+\maketitle
+
+\section{Parte 1}
+\begin{enumerate}
+ \item Faça um algoritmo que calcule e imprima o tamanho em bytes de um tipo de dados usando aritmética de ponteiros. Crie um ponteiro para cada 
+      um dos tipos: float, double, int, short, long e char. Analise cuidadosamente os diferentes resultados.
+ \item Um IP (Internet Protocol) nada mais é que uma identificação de um dispositivo em uma rede local ou pública. Na sua versão 4, este é composto 
+      por um endereços de até 32 bits. Faça um algoritmo que, utilizando ponteiros, crie um número IP a partir de 4 bytes lidos de um array de char. 
+      Um número IP é um inteiro,onde cada byte que compõe o inteiro armazena um dos campos do IP (usar apenas ponteiros).\\
+      Ex.: IP de uma máquina da FGA: 164.41.33.152\\
+	  char fields[] = {152, 33, 41, 164};\\
+	  Número inteiro que representa o IP:\\
+	  Byte 0 = 152 // 0x98 em hexa\\
+	  Byte 1 = 33 // 0x21\\
+	  Byte 2 = 41 // 0x29\\
+	  Byte 3 = 164 // 0xA4\\
+	  ou IP = 0xA4292198\\
+      Observação: Preste atenção ao total de bytes de cada tipo primitivo da sua máquina (o exercício anterior é útil neste sentido) e ao tipo de 
+      organização da sua arquitetura (little ending ou big ending).
+ \item O formato de imagem PGM (Portable GreyMap) é um padrão bitmap que contém somente quatro linhas de cabeçalho, dados armazenados como unsigned 
+      char fornecendo no máximo uma escala de cinza de 256 níveis. A estrutura geral do PGM é constituída de:\\
+      \begin{itemize}
+       \item Linha 1: Contém a assinatura do arquivo da imagem e identificador do arquivo PGM.
+       \item Linha 2: É uma linha de comentário.
+       \item Linha 3: Fornece informações sobre o número de linhas e colunas de dados armazenados em um arquivo.
+       \item Linha 4: Especifica o nível máximo de cinza contido na imagem.
+      \end{itemize}
+      Um exemplo da estrutura de uma imagem no formato PGM:\\
+	\\P5 \\
+	\#FGA\/SEM imagem gerada Ver.1.0 (0) \\
+	10 10 \\
+	255 \\
+	0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 \\
+	26 27 28 28 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 \\
+	48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 \\ 
+	71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 \\
+	255 255 255 255 255 255 \\
+      Um efeito muito comum que costuma-se dar a esta imagem é o chamado negativo. Este faz com que a cor de cada pixel da imagem original se 
+      transforme na cor inversa (por exemplo, um pixel branco se transforma em preto), a cor inversa é o valor da subtração entre 255 e o valor 
+      do pixel. Com base nas informações dadas, faça um programa que leia uma imagem no formato PGM, tire o negativo dela e salve-a como uma nova
+      imagem.
+ \item $<<$Questão explicada de como criar uma lista encadeada$>>$
+\end{enumerate}
+
+\section{Parte 2}
+  \begin{enumerate}
+   \item $<<$Enunciado do Problema de produtor e consumidor$>>$
+   \item $<<$Problema do jantar dos filósofos$>>$
+   \item $<<$Problema dos leitores e escritores$>>$
+   \item $<<$Problema do barbeiro sonolento$>>$
+  \end{enumerate}
+
+
+\section{Parte 3}
+  \begin{enumerate}
+
+   \item O \emph{Hypertext Transfer Protocol} (HTTP) - Protocolo de Transferência de Hipertexto - é um protocolo de aplicação responsável pelo tratamento 
+	de pedidos e respostas entre cliente e servidor na \emph{World Wide Web}. Veja abaixo um pequeno exemplo da sintaxe básica para trabalhar com 
+	tais páginas:\\
+\begin{verbatim}
+ 	<HTML>
+	  <HEAD>
+	    <TITLE>$Pagina de teste$</TITLE>
+	  </HEAD>
+          
+	  <BODY>
+	    <H2>PID desse Web Server: 12  <H2>
+	    <H5>Hora da requisicao: 12:27 </H5>
+	  </BODY>
+	</HTML>
+\end{verbatim}
+	Existem programas de computador responsáveis por aceitar pedidos HTTP de clientes, geralmente os navegadores, e servi-los com respostas HTTP,
+	incluindo opcionalmente dados que geralmente são páginas web, tais como documentos HTML com objetos embutidos (imagens, etc.). Tais programas 
+	são chamados de servidor web e são responsável por aceitar tais pedidos HTTP de clientes. Crie um pequeno servidor web que leia uma arquivo 
+	\emph{index.html}(contendo o código acima ou similar) e permita que outros usuários visualizem no seu navegador tal página. \\
+	\textbf{\emph{Dicas:}}
+	\begin{itemize}
+	 \item Recomenda-se a utilização da porta 3333, contudo não há fortes restrições quanta a esta.
+	 \item Realize uma pesquisa sobre servidores web, como exemplo busque pelo servidor Apache.
+	 \item Trabalhe inicialmente com \emph{tags} HTML simples.
+	\end{itemize}
+
+   \item Um \emph{chat} pode ser definido de forma geral como uma ferramenta de comunicação, disponível online, utilizada para realizar comunicação
+	em tempo real. Normalmente um \emph{chat} que promove a interação entre vários clientes costuma ter um servidor que gerencia os pedidos de 
+	conexão e repassa as diversas mensagens aos clientes. Realize as seguintes tarefas:
+	\begin{itemize}
+	 \item Crie um programa servidor que aceite e mantenha a conexão de pelo menos quatro clientes (\emph{Dica: Para cada pedido de conexão crie 
+	    um processo novo.}).
+	 \item Faça com que cliente e servidor troquem mensagens. 
+	 \item Faça com que os clientes troquem mensagens entre si por meio do servidor. 
+	\end{itemize}
+   \item Um \emph{port scanner} (scanner de porta) é um aplicativo com o objetivo de testar as portas lógicas de determinado \emph{host} remoto. 
+	Neste teste ele identifica o status das portas, se estão fechadas, escutando ou abertas. Pode-se explicitar o range de portas que o 
+	aplicativo irá scanear, por ex: 25 a 80. Geralmente os \emph{port scanners} são usado por pessoas mal intencionadas para identificar 
+	portas abertas e planejar invasões. Pode também ser usado também por empresas de segurança para análise de vulnerabilidades(\emph{pen test}).
+	Faça um \emph{port scanner} simples que trabalhe somente com os serviços TCP.\\
+	\textbf{Observação: Recomenda-se que tal programa seja testado na sua própria rede local, valendo observar que qualquer código produzido 
+	é de inteira responsabilidade do criador. O exercício proposto só deve ser utilizado para fins de estudo.}
+  \end{enumerate}
+\section{Parte 4 - Adicional}
+\begin{enumerate}
+  \item O diretor de um banco resolver modificar a forma de atender os clientes, considerando idade e sexo de cada um. As regras estabelecidas 
+	para acesso ao banco e pagamento de contas foram as seguintes:
+      \begin{itemize}
+       \item Não pode haver mais do que duas mulheres (de qualquer idade) pagando contas ao mesmo tempo no banco.
+       \item Crianças só podem realizar seus pagamentos depois que algum adulto já o fez.
+       \item Quando um homem idoso (idade igual ou superior a 60 anos) estiver pagando contas, a prioridade é específica para ele (não pode haver 
+	    mulher ou crianças utilizando os caixas junto com os idosos). Portanto, se houver alguma mulher ou criança realizando pagamentos, o 
+	    idoso deve aguardar até que esses sejam atendidos para depois entrar e realizar seus pagamentos.
+       \item Até três crianças podem entrar juntas no banco para pagarem suas contas.
+       \item Não mais do que quatro homens idosos podem entrar simultaneamente no banco para pagarem suas contas.
+       \item Toda combinação de clientes que não burlar alguma das regras acima é valida.
+      \end{itemize}
+	Crie um programa que simule as regras de acesso ao banco, considerando os seguintes requisitos:
+      \begin{enumerate}
+       \item Usar memória compartilhada e semáforos em ambiente Linux/Linguagem C para a gestão do acesso ao banco. Obs.: Considere a criação de 
+	    um único identificador de semáforo contemplando vários semáforos, se for o caso.
+       \item O número de clientes do banco (homens, mulheres, crianças) com suas respectivas idades pode ser informado via teclado ou ser gerado 
+	    randomicamente.
+       \item O programa deve gerar tantos processos filhos quantos cliente houverem para esse banco (cada processo pode representar um idoso, uma 
+	    mulher, uma criança e assim por diante).
+       \item Antes de tentar entrar no banco, o cliente deve pensar um pouco sobre as contas que vai pagar durante um tempo aleatório (entre 0 e 
+	    1000 microsegundos).
+       \item O procedimento de uso dos serviços do banco (pagamento, etc.) pode ser simulado por uma instrução "usleep()" de 50 micro-segundos em 
+	    conjunto com algum texto impresso na tela.
+       \item O processo pai deve aguardar o término de todos os processos filhos. Quando estes terminarem, o processo pai deve remover o segmento 
+	    de memória compartilhado e os semáforos criados.
+       \item Coloque instruções de saída em tela nos processos para crianças, mulheres, adultos e idosos de forma a acompanhar em que etapa cada 
+	    um deles está. Execute o programa gerado várias vezes. Para cada execução varie o número de clientes. Crie um quadro adequado para 
+	    apresentar os resultado a serem visualizados. 
+      \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

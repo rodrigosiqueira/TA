@@ -1,0 +1,109 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usetheme{PaloAlto}
+
+\title{Orientação a objetos\\ \textbf{Orientação a objetos em ANSI C - 1}}
+\author{Paulo Meirelles, Rodrigo Siqueira}
+\date{\today}
+\institute{\textbf{Universidade de Brasília - Faculdade do Gama}} 
+
+\begin{document}
+
+%SLIDE INICIAL DE APRESENTAÇÃO
+\begin{frame}
+  \titlepage
+\end{frame}
+  
+%SLIDES == INTRODUÇÃO
+\section{Introdução}
+\begin{frame}
+  \frametitle{Introdução}
+  \begin{itemize}
+   \item --- PENSAR ---.
+  \end{itemize}
+\end{frame}
+
+%SLIDES == EXEMPLO
+\section{Tipo de dados}
+\begin{frame}
+  \frametitle{O que é tipo de dados?}
+  \begin{itemize}
+    \item Pode ser visto como um conjunto de valores.
+    \item Pode ser visto como um conjunto de valroes, mais operações para 
+      trabalhar com eles.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Boas práticas}
+ \begin{block}{Primeira boa prática}
+  Esconda a representação dos itens de dados e declare apenas os manipuladores 
+  necessários.
+ \end{block}
+\end{frame}
+
+% TIPOS DE DADOS ABSTRATO
+\section{Tipo de dados abstrato}
+\begin{frame}
+ \frametitle{Dados abstrato}
+ \begin{block}{Dados abstrato}
+  Chamamos um tipo de dado abstrato, se nos não revelamrmos a sua representação 
+  para o usuário.
+ \end{block}
+ \begin{block}{Dividir e conquistar}
+  Esconda a informação e divida para conquistar.
+ \end{block}
+\end{frame}
+
+% Exemplo
+\section{Exemplo}
+\begin{frame}
+  \frametitle{--Explicar o exemplo usando conjuntos--}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Funções}
+  --Explicar as funções
+\end{frame}
+
+% GERENCIAMENTO DA MEMÓRIA
+\section{Gerenciamento da memória}
+\begin{frame}
+ \frametitle{Gerenciamento da memória}
+ \begin{enumerate}
+  \item Como obter um tipo \textit{Set}?
+  \begin{itemize}
+   \item R: Utilizando ponteiros para referir-se a conjuntos e elmentos.
+  \end{itemize}
+ \end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+ \frametitle{Funções}
+  % Mostrar as funções e ir para o código
+\end{frame}
+
+\begin{frame}
+ \frametitle{O que fazer com \textit{Set}?}
+\end{frame}
+
+% EXEMPLO DE UMA APLICAÇÃO
+\begin{frame}
+ \frametitle{Código da \textit{main}}
+\end{frame}
+
+\section{Implementando uma simplificação de new e delete}
+\begin{frame}
+ \frametitle{Como funicionará o \textit{new}}
+  Se um objeto não armazena informação e se todo objeto pertence para pelo menos 
+  um conjunto nos podemos repreentar cada objeto e cada conjunto como um valor 
+  pequeno, único, inteiro, positivo utilizando como índice em um \textit{heap}. 
+  Os objetos apontam para o conjunto que os contém.
+\end{frame}
+
+
+
+\end{document}

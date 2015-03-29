@@ -1,0 +1,73 @@
+\documentclass{beamer}
+
+\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usetheme{PaloAlto}
+
+\title{Sistemas Digitais 2\\ \textbf{Projeto de Circuitos Sequenciais}}
+\author{Rodrigo Siqueira}
+\date{Brasíla, 13/2011}
+\institute{\textbf{Universidade de Brasília - Faculdade do Gama}} 
+
+\begin{document}
+
+%SLIDE INICIAL DE APRESENTAÇÃO
+\begin{frame}
+  \titlepage
+\end{frame}
+  
+%SLIDES == INTRODUÇÃO
+\section{Introdução}
+\begin{frame}
+  \frametitle{Introdução}
+  \begin{itemize}
+   \item Quando realizamos a análise de um circuito, queremos obter a descrição do mesmo. \pause
+   \item Se quisermos construir o circuito, o que devemos fazer? \pause
+   \item Para construir o circuito fazemos praticamente o contrário da análise.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \frametitle{Introdução}
+ O processo de projetar um circuito sequência pode ser dividido em sete etapas, são elas:
+ \begin{block}{Etapas}
+  \begin{enumerate}
+   \item Partindo da descrição do circuito produza o diagrama de estados.\pause
+   \item Derive a tabela de próximo estado do diagrama de estados.\pause
+   \item Converta a tabela de próximo estado em uma tabela de implementação.\pause
+   \item Derive as equações de excitação para cada entrada de flip-flop da tabela de implementação.\pause
+   \item Derive a tabela de saída do diagrama de estados.\pause
+   \item Derive as equações de saída da tabela de saída. \pause
+   \item Desenhe o diagrama do circuito baseado nas equações de excitação e saída.
+  \end{enumerate}
+
+ \end{block}
+
+\end{frame}
+
+
+%SLIDES == EXEMPLO
+\section{Exemplo}
+\begin{frame}
+  \frametitle{Exemplo}
+  Desenvolvemos um exercício no qual aplicamos estes passos.\pause
+  \begin{center}
+   \begin{block}{Exemplo}
+    Projete um circuito sequencial que conte a seguinte sequencia: \\3, 7, 2, 6, 3, 7, 2, 6 … \\ Teremos uma entrada C que inicializa ou termina o circuito. 
+    Todos os estados não utilizados devem ser levados ao estado inicial, ou seja, o estado 3. Utilizar FF D e representar a contagem diretamente dos FF.
+   \end{block}
+  \end{center}
+
+\end{frame}
+
+%SLIDES == EXEMPLO DIAGRAMA DE ESTADOS
+\section{Exemplo(Diagrama de estados)}
+\begin{frame}
+  \frametitle{Exemplo(Diagrama de estados)}
+  \begin{itemize}
+   \item Analisando o problema notamos que só temos 4 números diferentes (3, 7, 2, 6). Notamos que o maior elemento é o 7, que pode ser representado por 3 bits.\pause
+  \end{itemize}
+
+\end{frame}
+
+\end{document}

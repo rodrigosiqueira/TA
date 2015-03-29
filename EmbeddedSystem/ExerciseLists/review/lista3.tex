@@ -1,0 +1,96 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{pgf}
+\pgfdeclareimage[height=1cm]{myimage}{p1_q1.png}
+
+
+%opening   
+\title{ \textbf{Universidade de Brasília -- Faculdade do Gama \\ Sistemas embarcados \\ Lista 1 }}
+\date{Setembro - 2011}
+
+\begin{document}
+\maketitle
+
+\section{Parte 3}
+  \begin{enumerate}
+
+   \item O \emph{Hypertext Transfer Protocol} (HTTP) - Protocolo de Transferência de Hipertexto - é um protocolo de aplicação responsável pelo tratamento 
+	de pedidos e respostas entre cliente e servidor na \emph{World Wide Web}. Veja abaixo um pequeno exemplo da sintaxe básica para trabalhar com 
+	tais páginas:\\
+\begin{verbatim}
+ 	<HTML>
+	  <HEAD>
+	    <TITLE>$Pagina de teste$</TITLE>
+	  </HEAD>
+          
+	  <BODY>
+	    <H2>PID desse Web Server: 12  <H2>
+	    <H5>Hora da requisicao: 12:27 </H5>
+	  </BODY>
+	</HTML>
+\end{verbatim}
+	Existem programas de computador responsáveis por aceitar pedidos HTTP de clientes, geralmente os navegadores, e servi-los com respostas HTTP,
+	incluindo opcionalmente dados que geralmente são páginas web, tais como documentos HTML com objetos embutidos (imagens, etc.). Tais programas 
+	são chamados de servidor web e são responsável por aceitar tais pedidos HTTP de clientes. Crie um pequeno servidor web que leia uma arquivo 
+	\emph{index.html}(contendo o código acima ou similar) e permita que outros usuários visualizem no seu navegador tal página. \\
+	\textbf{\emph{Dicas:}}
+	\begin{itemize}
+	 \item Recomenda-se a utilização da porta 3333, contudo não há fortes restrições quanta a esta.
+	 \item Realize uma pesquisa sobre servidores web, como exemplo busque pelo servidor Apache.
+	 \item Trabalhe inicialmente com \emph{tags} HTML simples.
+	\end{itemize}
+
+   \item Um \emph{chat} pode ser definido de forma geral como uma ferramenta de comunicação, disponível online, utilizada para realizar comunicação
+	em tempo real. Normalmente um \emph{chat} que promove a interação entre vários clientes costuma ter um servidor que gerencia os pedidos de 
+	conexão e repassa as diversas mensagens aos clientes. Realize as seguintes tarefas:
+	\begin{itemize}
+	 \item Crie um programa servidor que aceite e mantenha a conexão de pelo menos quatro clientes (\emph{Dica: Para cada pedido de conexão crie 
+	    um processo novo.}).
+	 \item Faça com que cliente e servidor troquem mensagens. 
+	 \item Faça com que os clientes troquem mensagens entre si por meio do servidor. 
+	\end{itemize}
+   \item Um \emph{port scanner} (scanner de porta) é um aplicativo com o objetivo de testar as portas lógicas de determinado \emph{host} remoto. 
+	Neste teste ele identifica o status das portas, se estão fechadas, escutando ou abertas. Pode-se explicitar o range de portas que o 
+	aplicativo irá scanear, por ex: 25 a 80. Geralmente os \emph{port scanners} são usado por pessoas mal intencionadas para identificar 
+	portas abertas e planejar invasões. Pode também ser usado também por empresas de segurança para análise de vulnerabilidades(\emph{pen test}).
+	Faça um \emph{port scanner} simples que trabalhe somente com os serviços TCP.\\
+	\textbf{Observação: Recomenda-se que tal programa seja testado na sua própria rede local, valendo observar que qualquer código produzido 
+	é de inteira responsabilidade do criador. O exercício proposto só deve ser utilizado para fins de estudo.}
+  \end{enumerate}
+\section{Parte 4 - Adicional}
+\begin{enumerate}
+  \item O diretor de um banco resolver modificar a forma de atender os clientes, considerando idade e sexo de cada um. As regras estabelecidas 
+	para acesso ao banco e pagamento de contas foram as seguintes:
+      \begin{itemize}
+       \item Não pode haver mais do que duas mulheres (de qualquer idade) pagando contas ao mesmo tempo no banco.
+       \item Crianças só podem realizar seus pagamentos depois que algum adulto já o fez.
+       \item Quando um homem idoso (idade igual ou superior a 60 anos) estiver pagando contas, a prioridade é específica para ele (não pode haver 
+	    mulher ou crianças utilizando os caixas junto com os idosos). Portanto, se houver alguma mulher ou criança realizando pagamentos, o 
+	    idoso deve aguardar até que esses sejam atendidos para depois entrar e realizar seus pagamentos.
+       \item Até três crianças podem entrar juntas no banco para pagarem suas contas.
+       \item Não mais do que quatro homens idosos podem entrar simultaneamente no banco para pagarem suas contas.
+       \item Toda combinação de clientes que não burlar alguma das regras acima é valida.
+      \end{itemize}
+	Crie um programa que simule as regras de acesso ao banco, considerando os seguintes requisitos:
+      \begin{enumerate}
+       \item Usar memória compartilhada e semáforos em ambiente Linux/Linguagem C para a gestão do acesso ao banco. Obs.: Considere a criação de 
+	    um único identificador de semáforo contemplando vários semáforos, se for o caso.
+       \item O número de clientes do banco (homens, mulheres, crianças) com suas respectivas idades pode ser informado via teclado ou ser gerado 
+	    randomicamente.
+       \item O programa deve gerar tantos processos filhos quantos cliente houverem para esse banco (cada processo pode representar um idoso, uma 
+	    mulher, uma criança e assim por diante).
+       \item Antes de tentar entrar no banco, o cliente deve pensar um pouco sobre as contas que vai pagar durante um tempo aleatório (entre 0 e 
+	    1000 microsegundos).
+       \item O procedimento de uso dos serviços do banco (pagamento, etc.) pode ser simulado por uma instrução "usleep()" de 50 micro-segundos em 
+	    conjunto com algum texto impresso na tela.
+       \item O processo pai deve aguardar o término de todos os processos filhos. Quando estes terminarem, o processo pai deve remover o segmento 
+	    de memória compartilhado e os semáforos criados.
+       \item Coloque instruções de saída em tela nos processos para crianças, mulheres, adultos e idosos de forma a acompanhar em que etapa cada 
+	    um deles está. Execute o programa gerado várias vezes. Para cada execução varie o número de clientes. Crie um quadro adequado para 
+	    apresentar os resultado a serem visualizados. 
+      \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

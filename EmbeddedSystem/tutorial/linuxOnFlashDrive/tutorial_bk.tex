@@ -1,0 +1,776 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{pgf}
+\pgfdeclareimage[height=1cm]{myimage}{p1_q1.png}
+\usepackage{listings}
+
+%----------------- CONFIGURAÇÃO PARA OS COMANDOS -----------------------
+\lstset
+{
+  basicstyle = \footnotesize, 		% Tamanho da fonte do código
+  %numbers = left, 			% Posição da numeração das linhas
+  %numberstyle = \tiny\color{blue}, 	% Estilo da numeração de linhas
+  %stepnumber = 1, 			% Numeração das linhas ocorre a cada quantas linhas?
+  %numbersep = 10pt, 			% Distância entre a numeração das linhas e o código
+  backgroundcolor = \color{white}, 	% Cor de fundo
+  showspaces = false, 			% Exibe espaços com um sublinhado
+  showstringspaces = false, 		% Sublinha espaços em Strings
+  showtabs = false, 			% Exibe tabulação com um sublinhado
+  frame = single, 			% Envolve o código com uma moldura, pode ser single ou trBL
+  rulecolor = \color{black}, 		% Cor da moldura
+  tabsize = 2, 				% Configura tabulação em x espaços
+  captionpos = b, 			% Posição do título pode ser t (top) ou b (bottom)
+  breaklines = true, 			% Configura quebra de linha automática
+  breakatwhitespace= false, 		% Configura quebra de linha
+  title = \lstname, 			% Exibe o nome do arquivo incluido
+  %caption = \lstname, % Também é possível usar caption no lugar de title
+  keywordstyle = \color{blue}, 		% Estilo das palavras chaves
+  commentstyle = \color{dkgreen}, 	% Estilo dos Comentários
+  stringstyle = \color{mauve}, 		% Estilo de Strings
+  escapeinside = {\%*}{*)}, 		% Permite adicionar comandos LaTeX dentro do seu código
+  morekeywords     ={*,...} 		% Se quiser adicionar mais palavras-chave
+}
+
+%------------------------------------------------------------------------
+%------------------------- CAPA -----------------------------------------
+%------------------------------------------------------------------------
+    \title{Como instalar o Linux no PenDrive com o Xenomai}
+    \author{Rodrigo Siqueira de Melo, Evandro Leonardo Silva Teixeira}
+    \date{27/12/2013}
+
+%------------------------------------------------------------------------
+%------------------------- ÍNDICE E DEMAIS ITENS ------------------------
+%------------------------------------------------------------------------
+    \begin{document}
+    \maketitle
+    \titlepage
+    \tableofcontents
+
+%------------------------------------------------------------------------
+%------------- INFORMATIVOS SOBRE O TUTORIAL ----------------------------
+%------------------------------------------------------------------------
+\newpage
+\section{Informativos sobre este tutorial}
+  \subsection{Sobre este tutorial}
+    \paragraph{}
+    Seja bem vindo ao tutorial de instalação do \emph{Linux} com \emph{Xenomai} em em um pendrive. Antes de 
+    começar a explicação sobre como proceder, gostaríamos de fazer algumas observações sobre este trabalho. 
+    Seguem:
+      \begin{itemize}
+	\item \textbf{Nosso objetivo principal}: Este tutorial visa ensinar o leitor como instalar o 
+	      \emph{Linux} em um pendrive e em seguida a configurar o \emph{Xenomai} no mesmo. Contudo o 
+	      diferencial deste trabalho consiste em tentar ensinar o processo e não somente mostrar os 
+	      passos. 
+	\item \textbf{Estrutura deste documento}: Visando atender os objetivo deste material, dividimos este 
+	      o trabalho em duas partes. Na primeira parte são mostrados os passos básicos com um nível de 
+	      detalhamento intermediário, visando uma rápida execução. Na segunda parte, temos uma série de 
+	      conceitos teóricos que fundamentam os passos explicados na primeira parte. Vale observar que as 
+	      duas partes são interligadas, quando você tiver alguma dúvida ou passar por algum erro na primeira 
+	      parte recomendamos fortemente que você faça uma leitura da segunda parte. O ideal serial uma 
+	      leitura completa deste tutorial, contudo nada impede o leitor de executar os passos e realizar 
+	      uma leitura seletiva sobre o que mais o interessa.
+	\item \textbf{Sobre as referências}: Gostaríamos deixar claro que este tutorial só foi possível graças 
+	      a enumeras referências coletadas pela \emph{Internet} e livros. Ao final deste documento citamos 
+	      todas as referências bibliográficas utilizadas para criação deste material e os nomes daqueles que 
+	      contribuirão diretamente para escrita deste documento. \\
+	      \emph{Se eu vi mais longe, foi por estar de pé sobre ombros de gigantes. Isaac Newton}
+      \end{itemize}
+    \subsection{O que é preciso para executar este tutorial e onde foi testado}
+      Para executar este tutorial alguns pré requisitos mínimos são necessários, são eles:
+      \begin{itemize}
+       \item Tutorial completo (Com \emph{Xenomai}): Pendrive de 2Gb, Computador com \emph{Ubuntu} ou \emph{Debian} 
+	    instalado.
+       \item Tutorial incompleto (só instalação do \emph{Linux}): Pendrive de 1Gb (existe algumas restrições quanto a
+	    interface que será utilizada), Computador com \emph{Ubuntu} ou \emph{Debian} instalado.
+       \item Ambos: Conexão com Internet e paciência.
+      \end{itemize}
+      Segue as condições na qual este tutorial foi testado:\\
+      \begin{center}
+	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+	  \hline
+	    Distribuição utilizada & Distribuição instalada no Pendrive & Tamanho do Pendrive & Interface & Arquitetura\\	
+	  \hline
+	    Debian & Squeeze, Lenny & 16Gb, 6Gb, 4Gb e 1Gb & OpenBox, Gnome, LXDE/OpenBox/Gnome e OpenBox & x86\\
+	  \hline 
+	    Ubuntu & Squeeze, Lenny & 16Gb, 2Gb & OpenBox, LXDE & x86\\
+	  \hline
+	\end{tabular}
+       \end{center}
+
+\newpage
+%------------------------------------------------------------------------
+%------------------------- SEÇÃO: PARTE 1 -------------------------------
+%------------------------------------------------------------------------
+\section{Parte 1 - Instalando e configurando o Linux no Pendrive}
+%-------------- INSTAÇÃO DE PACOTE --------------------------------------
+  \subsection{Instalação de pacotes básicos}
+    \paragraph{}
+    Alguns pacotes e programas são fundamentais para proceder com os passos iniciais. Portanto começamos 
+    com a instalação dos seguintes \emph{softwares}:
+      \begin{lstlisting}[frame=single]
+	# apt-get install mbr
+	# apt-get install syslinux
+	# apt-get install debootstrap
+	# apt-get install qemu
+      \end{lstlisting}
+    Vale observar que ao longo do tutorial será preciso instalar outros pacotes, contudo a maioria deles 
+    ocorrerão em um contexto de \emph{enjaulamento}\footnote{Este conceito será explicado no decorrer das 
+    atividades}. 
+
+%-------------- LISTA DE PASSOS PARA PREPARAR O PENDRIVE ----------------
+  \subsection{Preparando o pendrive}
+    \begin{enumerate}
+      \item Conecte o seu pendrive na porta USB.
+      \item Para saber como o \emph{Linux} reconheceu o \emph{Pendrive} digite:
+	\begin{lstlisting}[frame=single]
+	  $ dmesg | tail
+	\end{lstlisting}
+      Você verá um resultado semelhante ao apresentado abaixo:
+
+	\begin{lstlisting}
+      [  268.014375] sd 5:0:0:0: Attached scsi generic sg2 type 0
+      [  268.015556] sd 5:0:0:0: [sdb] 3942399 512-byte logical blocks: (2.01 GB/1.87 GiB)
+      [  268.016267] sd 5:0:0:0: [sdb] Write Protect is off
+      [  268.016274] sd 5:0:0:0: [sdb] Mode Sense: 45 00 00 08
+      [  268.016280] sd 5:0:0:0: [sdb] Assuming drive cache: write through
+      [  268.018169] sd 5:0:0:0: [sdb] Assuming drive cache: write through
+      [  268.018177]  sdb: sdb1
+      [  268.024556] sd 5:0:0:0: [sdb] Assuming drive cache: write through
+      [  268.024566] sd 5:0:0:0: [sdb] Attached SCSI removable disk
+      [  268.319097] FAT: utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+	\end{lstlisting}
+      Repare que esta saída está nos dizendo que o pendrive na máquina atual é reconhecida como \emph{sdb}. 
+      Logo podemos realizar operações sobre ele pelo caminho \emph{/dev/sdb}.
+
+    %-------------- ZERANDO O PENDRIVE --------------------------------------
+      \subsubsection{Zerando o \emph{pendrive}}
+	\item Para garantir a integridade, escrevemos 0 em todo o \emph{pendrive} por meio do comando abaixo:
+	    \begin{lstlisting}[frame=single]
+	      # dd if=/dev/zero of=/dev/xxx
+	    \end{lstlisting}
+	    Substitua o xxx pelo nome no qual o seu dispositivo foi reconhecido pelo sistema, por exemplo 
+	    \emph{sdb}. Dependendo do tamanho do \emph{pendrive}, este passo pode levar um tempo e ao final 
+	      apresenta uma saída semelhante a apresentada abaixo:
+	    \begin{verbatim}
+	      dd: escrevendo em "/dev/sdb": Não há espaço disponível no dispositivo
+	      1953664+0 registros de entrada
+	      1953663+0 registros de saída
+	      1000275456 bytes (1,0 GB) copiados, 326,176 s, 3,1 MB/s
+	    \end{verbatim}
+
+    %-------------- CRIANDO PARTIÇÕES NO PENDRIVE/BOOTÁVEL ------------------
+      \subsubsection{Criando partições no \emph{pendrive} e tornando-o bootável}
+      Neste passo você pode utilizar qualquer ferramenta que você esteja habituado a usar para realizar 
+      particionamento de disco. Contudo apresenta-se os passos com \emph{fdisk}
+	\item Utilize o comando \emph{fdisk} para particionar o seu dispositivo:
+	  \begin{lstlisting}
+	    # fdisk /dev/xxx
+	  \end{lstlisting}
+	  Substitua \emph{/dev/xxx} pelo seu dispositivo.
+  
+    \item Quando estiver no \emph{prompt} de comando do \emph{fdisk} siga a sequencia abaixo:
+      \begin{itemize}
+	\item Digite \emph{\textbf{n}} e pressione \emph{\textbf{ENTER}}.
+	\item Digite \emph{\textbf{p}} seguido da tecla \emph{\textbf{ENTER}}.
+	\item Em número de partição, digite \emph{\textbf{1}} e depois \emph{\textbf{ENTER}}.
+	\item Em primeiro cilindro digite \emph{\textbf{ENTER}}.
+	\item Quando for pedido o número do último cilindro digite \emph{\textbf{ENTER}}.
+	\item Você será levado de volta ao \emph{prompt} do \emph{fdisk}.
+	\item Digite \emph{\textbf{a}} seguido de 1 e depois \emph{\bf{ENTER}} para tornar a 
+	    partição \emph{bootável}. Em seguida digite \emph{\textbf{1}} e \emph{\textbf{ENTER}}
+      \end{itemize}
+
+    \item Quando estiver dentro do \emph{prompt} do \emph{fdisk} digite \emph{\textbf{p}} e \emph{\textbf{ENTER}} 
+      para visualizar a partição criada. Você verá uma mensagem parecida com a apresentada abaixo:
+	\begin{lstlisting}
+	Disk /dev/sdb: 15.5 GB, 15504900096 bytes
+	64 heads, 32 sectors/track, 14786 cylinders
+	Units = cilindros of 2048 * 512 = 1048576 bytes
+	Sector size (logical/physical): 512 bytes / 512 bytes
+	I/O size (minimum/optimal): 512 bytes / 512 bytes
+	Disk identifier: 0x78d8c044
+
+	Dispositivo Boot Start   End   Blocks Id System
+	/dev/sdb1   *      1   14786 15140848 83 Linux
+	\end{lstlisting}
+
+    \item Digite \emph{\textbf{w}} para salvar as alterações e sair.
+
+    \item Por fim, digite:
+      \begin{lstlisting}
+      # fdisk /dev/xxx -l
+      \end{lstlisting}
+      Este comando mostrará como está o disco atual e permitirá a conferência do trabalho realizado.
+
+    %-------------- CRIANDO UM MBR E FORMATANDO A PARTIÇÃO ------------------
+      \subsubsection{Criando um MBR(\emph{Master Boot Record}) e formatando a partição}
+
+	\item Digite o comando abaixo para instalar o MBR no seu \emph{pendrive} (Ele não apresenta 
+	  saída no terminal):
+	  \begin{lstlisting}
+	  # install-mbr /dev/xxx
+	  \end{lstlisting}
+
+	\item Em seguida vamos formatar a partição para \emph{ext2}. Digite o comando abaixo:
+	  \begin{lstlisting}
+	  # mkfs.ext2 /dev/xxx1 -L RAIZ
+	  \end{lstlisting}
+	  Observe que definimos o rótulo RAIZ para a partição, este passo é fundamental para o que o
+	  \emph{boot} ocorra de maneira correta.
+    %-------------- CRIANDO UM SISTEMA DE BOOT ------------------------------
+      \subsubsection{Criando um sistema de boot}  
+	
+	\item Monte a partição em \emph{mnt}:	
+	  \begin{lstlisting}
+	  # mount /dev/xxx1 /mnt
+	  \end{lstlisting}
+
+	\item Execute os comandos abaixo:
+	  \begin{lstlisting}
+	    # mkdir -p /mnt/boot/extlinux
+	    # extlinux -i /mnt/boot/extlinux
+	  \end{lstlisting}
+      \end{enumerate}
+
+%------------------------------------------------------------------------ 
+%-------------- INSTALANDO O DEBIAN NO PENDRIVE -------------------------
+%------------------------------------------------------------------------
+  \subsection{Instalando o \emph{debian} no \emph{Pendrive}}
+    \begin{enumerate}
+%-------------- INSTALANDO O DEBIAN -------------------------------------
+      \subsubsection{Instalando o debian}
+      \item Para instalar o \emph{debian}, escolha uma versão e utilize um 
+	    dos comandos abaixo para isto:\\
+	Para o \emph{Squeeze}:
+	\begin{lstlisting}
+	  debootstrap --arch i386 squeeze mnt/ http://ftp.us.debian.org/debian
+	\end{lstlisting}
+	Para o \emph{Lenny}:
+	\begin{lstlisting}
+	  debootstrap --arch i386 lenny mnt/ http://archive.debian.org/debian/
+	\end{lstlisting}
+	Para o \emph{Etch}:
+	\begin{lstlisting}
+	  debootstrap --arch i386 etch mnt/ http://archive.debian.org/debian/
+	\end{lstlisting}
+	  \begin{center}
+	    \begin{tabular}{|p{7cm}|}
+	      \hline
+		\textbf{ATENÇÃO}: Para este tutorial iremos utilizar o \emph{squeeze}. Vale observar que 
+		alguns passos podem variar de distribuição para distribuição, principalmente aqueles
+		que referem-se a instalação de pacotes. \\
+	      \hline
+	    \end{tabular}
+	  \end{center}
+%-------------- CONFIGURANDO O DEBIAN -----------------------------------
+    \subsubsection{Configurando o debian}
+    \item Ao término da instalação faremos o enjaulamento no diretório \emph{mnt}, isto fará com que 
+	toda a ação executada após o comando ocorrera dentro do \emph{pendrive}. Para isto utilize o 
+	comando abaixo:
+	  \begin{lstlisting}[frame=single]
+	  # chroot /mnt
+	  \end{lstlisting}
+	  \begin{center}
+	    \begin{tabular}{|p{7cm}|}
+	      \hline
+		\textbf{ATENÇÃO}: Se o comando \emph{chroot} apresentar algum erro pode ser necessário um 
+		passo adicional para utiliza-lo. Para isto execute o comando \emph{$echo$ 1 $> vdso\_enable$} 
+		e altere o valor de 0 para 1.\\
+	      \hline
+	    \end{tabular}
+	  \end{center}
+
+    \item Monte o diretório \emph{proc} dentro do enjaulamento:
+      \begin{lstlisting}
+	# mount -t proc proc /proc
+      \end{lstlisting}
+
+%-------------- AJUSTE A LISTA DE REPOSITÓRIO ---------------------------
+    \subsubsection{Ajuste a lista de repositório}
+    \item digite:
+      \begin{lstlisting}
+	nano /etc/apt/source.list
+      \end{lstlisting}
+      Adicione as seguintes fontes:
+	\begin{lstlisting}
+	  deb http://ftp.us.debian.org/debian squeeze main contrib non-free
+
+	  # squeeze-updates, previously known as 'volatile'
+	  deb http://ftp.br.debian.org/debian/ squeeze-updates main
+	  deb-src http://ftp.br.debian.org/debian/ squeeze-updates main
+	\end{lstlisting}
+
+    \item Após a alteração no arquivo digite:
+      \begin{lstlisting}
+	# apt-get update
+      \end{lstlisting}
+
+%-------------- DEFININDO A LÍNGA LOCAL ---------------------------------
+    \subsubsection{Definindo a língua local}
+    \item Digite os comandos abaixo para configurar questões de idioma:
+      \begin{lstlisting}
+	# apt-get install locales
+	# dpkg-reconfigure locales
+      \end{lstlisting}
+    \item Na tela que será apresentada selecione: $pt\_BR ISO-8859-1$ e $pt\_BR.UTF-8 UTF-8$. Na tela 
+	seguinte deixe como \emph{default} $pt\_BR.UTF-8$. 
+
+%-------------- INSTALANDO UM KERNEL ------------------------------------
+    \subsubsection{Instalando um kernel com \emph{Xenomai}}
+    \item \textbf{\emph{Atenção:}}: Se você não tem interesse em instalar o \emph{Xenomai} pule para a próxima seção. 
+      
+
+    \subsubsection{Instalando um kernel (Sem a o \emph{Xenomai})}
+    \item \textbf{\emph{Atenção}}: Se você fez a instalação do \emph{Kernel} com \emph{Xenomai}, pule esta seção.
+    \item Verificar os \emph{kerneis} disponíveis para instalação:
+      \begin{lstlisting}
+	# apt-cache search ^linux-image
+      \end{lstlisting}
+      Veja a resposta do comando a cima e procure por um \emph{kernel} que se encaixe com as 
+      suas configurações de hardware. Por exemplo, linux-image-2.6.26-1-686.
+    \item Após selecionar um \emph{kernel}, digite:
+      \begin{lstlisting}
+	# apt-get install firmware-linux-nonfree
+	# apt-get install linux-image-2.6.26-1-686
+      \end{lstlisting}
+
+	 \begin{center}
+	    \begin{tabular}{|p{8cm}|}
+	      \hline
+		\textbf{ATENÇÃO}: Caso a seguinte pergunta aparece: \emph{Abort initrd kernel 
+		    image installation?},responda Não. Se por engano você responder Sim, 
+		    execute o comando.\\
+	      \hline
+		\begin{verbatim}
+		  # update-initramfs -c -k [VersaoKernel]
+		\end{verbatim}\\
+	      \hline
+	    \end{tabular}
+	  \end{center}
+
+%-------------- CRINAÇÃO DE UM ARQUIVO DE SWAP --------------------------
+    \subsubsection{Criação de um arquivo de \emph{swap}}
+    \item Vamos criar um \emph{swap} de 100Mb, digite o comando abaixo:
+      \begin{lstlisting}
+	# dd if=/dev/zero of=/swapfile bs=10M count=10
+	# mkswap /swapfile
+      \end{lstlisting}
+
+%-------------- INTEGRAÇÃO DO KERNEL COM EXTLINUX E RAIZ ----------------
+    \subsubsection{Integração do \emph{Sistema} com o \emph{bootloader} e a partição raiz}
+    \item Crie o arquivo de configuração:
+      \begin{lstlisting}
+	# touch /boot/extlinux/extlinux.conf
+      \end{lstlisting}
+    
+    \item Edite o arquivo recém criado com as configurações abaixo:
+      \begin{lstlisting}
+	DEFAULT linux
+	LABEL linux
+	SAY Inicializando o Debian Squeeze...
+	KERNEL /vmlinuz
+	APPEND ro root=LABEL=RAIZ initrd=/initrd.img
+      \end{lstlisting}
+      Repare que neste ponto passamos a ter um arquivo de configuração que referência o 
+      dispositivo pelo rótulo RAIZ. Isto fará com que o \emph{pendrive} de o \emph{boot}
+      corretamente.
+
+    \item Editando o arquivo \emph{/etc/fstab}:
+      \begin{lstlisting}
+# nano /etc/fstab
+
+#<file system> <mount point> <type> <options>    <dump> <pass>
+proc            /proc         proc   defaults         0      0
+LABEL=RAIZ      /             ext2   defaults,noatime 0      1
+/swapfile       none          swap   sw               0      0
+      \end{lstlisting}
+%---- ADICIONANDO UM USUÁRIO, ALTERANDO A SENHA ROOT E TESTE ------------    
+    \subsubsection{Adicionando um usuário, alterando senha de root e testando}
+    \item Adicionando um novo usuário, preencha os campos solicitados pelo comando:
+      \begin{lstlisting}
+	# adduser NOME
+      \end{lstlisting}
+
+    \item Em seguida altere a senha de \emph{root}:
+      \begin{lstlisting}
+	# passwd root
+      \end{lstlisting}
+
+    \item Desmonte a pasta \emph{/proc} e saía do enjaulamento:
+      \begin{lstlisting}
+	# apt-get clean
+	# umount /proc
+	# exit
+      \end{lstlisting}
+    
+    \item Desmonte o \emph{pendrive}
+      \begin{lstlisting}
+	# umount /mnt/
+      \end{lstlisting}
+    
+     \item Neste ponto já temos um sistema operacional \emph{bootável}. Testando o \emph{pendrive}, 
+	existem duas possibilidades:
+      \begin{lstlisting}
+	Op1: Reinicie o pendrive e de boot pelo computador.
+	Op2: qemu -hda /dev/xxx
+      \end{lstlisting}
+  \end{enumerate}
+
+%------------------------------------------------------------------------ 
+%----------------------- AJUSTES BÁSICOS --------------------------------
+%------------------------------------------------------------------------
+  \subsection{Ajuste básicos}
+    \begin{enumerate}
+      \item Após o teste repetimos o enjaulamento:
+	\begin{lstlisting}
+	  # umount /dev/xxx
+	  # mount /dev/xxx /mnt
+	  # chroot /mnt
+	  # mount -t proc proc /proc
+	\end{lstlisting}
+
+      \item (OPCIONAL)Caso queira alterar o nome local, digite o comando abaixo e insira o 
+	  nome desejado no arquivo.
+	\begin{lstlisting}
+	  # nano /etc/hostname
+	\end{lstlisting}
+
+      \item (OPCIONAL)Altere o arquivo \emph{/etc/hosts}. Recomenda-se que seja realizado a cópia de 
+	  algum computador que já tenha este arquivo. Do contrário configure da maneira que for 
+	   conveniente para o seu contexto.
+	\begin{lstlisting}
+	  # nano /etc/hosts
+	\end{lstlisting}
+
+      \item Instalação de alguns pacotes mínimos. O ideal é que todos os pacotes sejam instalado, contudo 
+	aqueles que possuem OP na frente são optativos e não influenciaram na instalação e podem ser evitados
+	para \emph{pendrives} pequenos.
+	\begin{lstlisting}
+	# apt-get install build-essential
+	# apt-get install ntpdate
+	OP1 # apt-get install dosfstools ntfsprogs ntfs-3g jfsutils reiserfsprogs xfsprogs mbr testdisk
+	OP2 # apt-get install bittwist dnsutils fping hping3 ipcalc netcat nmap tcpdump telnet traceroute wireless-tools
+	# apt-get install ftp rsync ssh udpcast
+	OP3 # apt-get install clamav console-tools ddrescue debootstrap durep fdupes grub hexedit \
+	    hwinfo less lshw mc myrescue magicrescue parted rcconf strace unzip wipe zip
+	\end{lstlisting}
+
+      \item (OPCIONAL)Configure o arquivo \emph{/etc/network/interface} para obter uma rede assim o boot for realizado.
+	Recomenda-se que seja feita uma cópia do arquivo do sistema operacional em uso, ou seja, o que 	
+	está fora do enjaulamento do /emph{chroot}. 
+
+      \item (OPCIONAL)Configuração básica da rede
+	\begin{lstlisting}
+	  # nano /etc/rc.local
+	    Digite: dhclient
+	\end{lstlisting}
+
+      \item (OPCIONAL)Configurando um \emph{DNS} para resolver a Internet:
+	\begin{lstlisting}
+	  # apt-get install bind9
+	  # nano /etc/resolv.conf 
+	    Digite: nameserver 127.0.0.1
+	  # nano /etc/dhcp3/dhclient.conf
+	    Descomente: prepend domain-name-servers 127.0.0.1;
+	\end{lstlisting}
+    \end{enumerate}
+
+%------------------------------------------------------------------------ 
+%-------------- INSTALANDO A INTERFACE GRÁFICA --------------------------
+%------------------------------------------------------------------------
+  \subsection{Instalação da interface gráfica}
+  Na instalação das interfaces, você será perguntado sobre qual mapa de teclado utilizar,
+  sempre opte por ``Brazil''.
+%-------------- INSTANADO LXDE ------------------------------------------
+    \subsubsection{Instalando o LXDE (RECOMENDADA)}
+      Recomenda-se a instalação desta interface gráfica,
+      \begin{enumerate}
+	\item Instalando os software da interface:
+	  \begin{verbatim}
+	    # apt-get install xorg lxde dbus hal obconf
+	  \end{verbatim}
+	\item Para fazer com que \emph{login} gráfico seja ativado:
+	  \begin{verbatim}
+	    # echo startlxde > ~/.xinitrc
+	    # apt-get clean
+	  \end{verbatim}
+      \end{enumerate}
+%-------------- INSTALANDO OPEN BOX -------------------------------------
+    \subsubsection{Instalando o OpenBox}
+      Vale observar que está interface na sua forma mais simples, é um pouco 
+      ``espartana''. Contudo esta permite uma vasta possibilidade de configurações, 
+      além de ser extremamente leve.
+      \begin{enumerate}
+	\item Instalação dos softwares e ferramentas:
+	  \begin{lstlisting}
+	   # apt-get install xserver-xorg-core xinit openbox xterm bzip2
+	  \end{lstlisting}
+	\item ao fazer o login digite:
+	  \begin{lstlisting}
+	   # startx
+	  \end{lstlisting}
+	  A principio, pode parecer que nada ocorreu. Contudo clique com o botão direito na tela.
+	\item Se preferir livra-se do \emph{prompt} no login e do comando \emph{startx}, ainda no 
+	  enjaulamento digite:
+	  \begin{lstlisting}
+	   # apt-get install gdm
+	   # apt-get clean
+	  \end{lstlisting}
+
+      \end{enumerate}
+%-------------- INSTALANDO GNOME ----------------------------------------
+    \subsubsection{Instalando do ambiente GNOME tradicional}
+      Instala a interface gráfica \emph{GNOME} tradicional. Vale observar que esta instalação 
+      demora um e ocupa bastante espaço do \emph{pendrive}, contudo fornece uma interface muito 
+      simples e completa.
+      \begin{enumerate}
+	\item Digite os seguinte comando para instalar o X:
+	  \begin{lstlisting}
+	   # apt-get install x-window-system
+	  \end{lstlisting}
+	\item Instalar o GDM:
+	  \begin{lstlisting}
+	   # apt-get install gdm
+	  \end{lstlisting}
+	\item Instalar o GNOME:
+	  \begin{lstlisting}
+	   # apt-get install gnome 
+	   # apt-get clean
+	  \end{lstlisting}
+      \end{enumerate}
+      A primeira inicialização pode demorar e depois de um tempo o computador reinicia. Contudo 
+      os próximos \emph{boots} ficam normal.
+    \subsubsection{Teste do dispositivo}
+      Reinicie a sua máquina e teste o novo SO instalado no \emph{pendrive}.
+%------------------------------------------------------------------------ 
+%-------------------- CONFIGURANDO O XENOMAI ----------------------------
+%------------------------------------------------------------------------
+  \subsection{Recompilando o \emph{Kernel} e configurando o \emph{Xenomai}}
+%-------------- PREPARANDO O AMBIENTE -----------------------------------
+    \subsubsection{Preparando o ambiente}
+      \begin{enumerate}
+	\item Entre no seu sistema operacional de trabalho e conecte o \emph{pendrive}.
+	\item Monte o \emph{pendrive} e faça o enjaulamento:
+	  \begin{lstlisting}
+	    # mount /dev/xxx /mnt
+	    # chroot /mnt
+	    # mount -t proc proc /proc
+	  \end{lstlisting}
+
+	\item Instalação de pacotes básico:
+	  \begin{lstlisting}
+	    # apt-get install kernel-package libncurses-dev fakeroot zlib1g-dev
+	    # apt-get install zlibc zlib-bin
+	    # apt-cache search zlib.h
+	    # apt-get install zlib-bin zlib1g zlib1g-dev zlib1g-dbg libio-zlib-perl zlibc zlib-gst	
+	  \end{lstlisting}
+
+	\item Mude para o diretório de código fonte:
+	  \begin{lstlisting}
+	    # cd /usr/src 
+	  \end{lstlisting}
+
+	\item Realize o \emph{download} do código fonte do \emph{kernel} do \emph{Linux}:
+	  \begin{lstlisting}
+	    # wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.32.20.tar.bz2
+	  \end{lstlisting}
+
+	\item Descomprimindo o arquivo do \emph{kernel}:
+	  \begin{lstlisting}
+    	    # tar -jxvf linux-2.6.32.20.tar.bz2
+	  \end{lstlisting}
+
+	\item Criar um link simbólico para o diretório do \emph{kernel}:
+	  \begin{lstlisting}
+	   # ln -s /usr/src/linux-2.6.32.20 linux
+	  \end{lstlisting}
+
+	\item Realizar o download do código fonte do \emph{Xenomai}:
+	  \begin{lstlisting}
+	   # wget http://download.gna.org/xenomai/stable/xenomai-2.5.6.tar.bz2
+	  \end{lstlisting}
+
+	\item Descompacte os arquivos do \emph{Xenomai} e modifique as permissões
+	  \begin{lstlisting}
+	    # tar -jxvf xenomai-2.5.6.tar.bz2 && chmod 775 -R xenomai-2.5.6
+	  \end{lstlisting}
+
+	\item Crie um link simbólico para o arquivos descompactados do \emph{Xenomai}:
+	  \begin{lstlisting}
+	    # ln -s /usr/src/xenomai-2.5.6 xenomai
+	  \end{lstlisting}
+
+	\item Realize o download do pacote \emph{patch} \emph{Adeos}:
+	  \begin{lstlisting}
+	   # wget http://download.gna.org/adeos/patches/v2.6/x86/older/adeos-ipipe-2.6.32.20-x86-2.7-03.patch
+	  \end{lstlisting}
+
+	\item Copiando o \emph{path} do \emph{Adeos} para o diretório \emph{Xenomai}
+	  \begin{lstlisting}
+	   # cp adeos-ipipe-2.6.32.20-x86-2.7-03.patch /usr/src/xenomai/ksrc/arch/x86/patches
+	  \end{lstlisting}
+
+	\item Aplicando o \emph{path} o no código fonte do \emph{kernel}
+	  \begin{lstlisting}
+	   # ./xenomai/scripts/prepare-kernel.sh --arch=x86 --adeos=/usr/src/xenomai/ksrc/arch/x86/patches/adeos-ipipe-2.6.32.20-x86-2.7-03.patch --linux=/usr/src/linux
+	  \end{lstlisting}
+
+	\item Mudando para o diretório do \emph{Linux}:
+	  \begin{lstlisting}
+	   # cd linux
+	  \end{lstlisting}
+
+	\item Copiando o arquivo \emph{.config} da distribuição padrão para o diretório do \emph{linux}
+	  \begin{lstlisting}
+	   # cp /boot/config-`uname -r` .config
+	  \end{lstlisting}
+      
+     \subsubsection{Configurando o kernel}
+
+	\item As configurações do \emph{kernel} são específicas para cada arquitetura que irá utilizar o novo \emph{kernel}. 
+	  Desse modo, este tutorial apenas ilustra aquelas já documentadas pela literatura como sendo problemáticas 
+	  com o \emph{Xenomai}.
+	
+	\item Digite no terminal:
+	  \begin{lstlisting}
+	   # make menuconfig
+	  \end{lstlisting}
+
+	\item Realize as seguinte configurações:
+	  \begin{itemize}
+	    \item General Setup $-->$
+		\begin{itemize}
+		  \item Local version – append to kernel release $--->$
+		    \begin{itemize}
+		      \item Digitar: -xenomai-2.5.6
+		    \end{itemize}
+		\end{itemize}
+
+	      \item Power management and ACPI options $--->$
+		\begin{itemize}
+		  \item ACPI (Advanced Configuration and Power Interface)Support $--->$
+		    \begin{itemize}
+		      \item Processor
+			\begin{itemize}
+			  \item Desabilitar Processor
+			\end{itemize}
+		    \end{itemize}
+
+		  \item APM (Advanced Power Management) BIOS Support $--->$
+		    \begin{itemize}
+		      \item Desabilitar APM (Advanced Power Management) BIOS Support
+		    \end{itemize}
+
+		  \item CPU Frequency scaling $--->$
+		    \begin{itemize}
+		      \item Desabilitar CPU Frequency scaling
+		    \end{itemize}
+
+		\end{itemize}
+
+	      \item Processor types and features $--->$
+		\begin{itemize}
+		\item Escolher o processador específico. Não escolher processador genérico como "generic i586"
+		\item Enable -fstack-protector buffer overflow dettector
+		  \begin{itemize}
+		  \item Desabilite esta opção.
+		  \end{itemize}
+
+		\item HPET Timer Support
+		  \begin{itemize}
+		    \item Desabilite esta opção.
+		  \end{itemize}
+
+		\item Preemption model $--->$
+		  \begin{itemize}
+		  \item Escolher Preemptible Kernel (Low-Latency Desktop)
+		  \end{itemize}
+		\end{itemize}
+	      
+	      \item Device Drivers $--->$
+		\begin{itemize}
+		\item Input device support $--->$
+		  \begin{itemize}
+		  \item Miscellaneous device $--->$
+		    \begin{itemize}
+		    \item PC Speaker support\\
+		      Desabilitar esta opção
+		    \end{itemize}
+		  \end{itemize}
+		\end{itemize}
+
+	      \item Device Drivers $--->$
+		\begin{itemize}
+		  \item Debug support (Habilite esta opção)
+		    \begin{itemize}
+		      \item Wathdog timeout
+			\begin{itemize}
+			 \item Determine um valor de \emph{timeout}, recomendo (15)
+			\end{itemize}
+
+		    \end{itemize}
+		\end{itemize}
+
+	  \end{itemize}
+
+	\item Realizando a compilação do \emph{Kernel} com \emph{framework} \emph{Xenomai}:
+	  \begin{lstlisting}
+	    # CONCURRENCY_LEVEL=2 CLEAN_SOURCE=no fakeroot make-kpkg --initrd kernel_image kernel_headers
+	  \end{lstlisting}
+
+	\item Subindo uma pasta para instalação do novo \emph{Kernel}:
+	  \begin{lstlisting}
+	  cd ..
+	  \end{lstlisting}
+
+	\item Instalando o \emph{Kernel} com o \emph{dpkg}:
+	  \begin{lstlisting}
+	    # dpkg -i linux-image*.deb
+	  \end{lstlisting}
+
+	\item Mudar para o diretório do \emph{Xenomai}
+	  \begin{lstlisting}
+	    # cd /usr/src/xenomai
+	  \end{lstlisting}
+
+	\item Executar o \emph{script configure} (opções de configuração README.INSTALL):
+	  \begin{lstlisting}
+	   # ./configure --enable-x86-sep --enable-smp --disable-x86-tsc
+	  \end{lstlisting}
+
+	\item Executar o comando \emph{make} e \emph{make install}
+	  \begin{lstlisting}
+	    # make && make install
+	  \end{lstlisting}
+
+	\item Mudar para o diretório \emph{bin} do \emph{Xenomai}
+	  \begin{lstlisting}
+	   # cd /usr/xenomai/bin
+	  \end{lstlisting}    
+
+      \end{enumerate}
+
+%------------------------------------------------------------------------ 
+%--------------- ENTENDENDO OS PASSOS DE INSTALAÇÃO ---------------------
+%------------------------------------------------------------------------
+\newpage
+\section{Parte 2 - Entendendo os passos de instalação}
+
+\newpage
+\section{Bibliografia}
+
+  \begin{lstlisting}
+   http://eriberto.pro.br/wiki/index.php?title=Pendrive_de_boot_com_Debian_Lenny_customizado
+   http://ubuntuforums.org/showthread.php?t=778818 
+   http://www.911cd.net/forums//index.php?showtopic=21353
+  \end{lstlisting}
+
+
+\end{document}
+
+
+%refs
+%http://eriberto.pro.br/wiki/index.php?title=Pendrive_de_boot_com_Debian_Lenny_customizado
+%http://ubuntuforums.org/showthread.php?t=778818
+%http://www.911cd.net/forums//index.php?showtopic=21353
