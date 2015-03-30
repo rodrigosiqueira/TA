@@ -1,0 +1,75 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{pgf}
+\pgfdeclareimage[height=1cm]{myimage}{p1_q1.png}
+
+
+%opening   
+\title{ \textbf{Universidade de Brasília -- Faculdade do Gama \\ Orientação a 
+objetos \\ Revisão }}
+\date{}
+
+\begin{document}
+\maketitle
+
+\paragraph{}
+\textbf{Atenção:} Esta lista tem por objetivo relembrar conceitos de ponteiro e 
+aguçar a compreensão sobre o mesmo. Esta é uma lista opcional e \textbf{não} 
+será atribuído qualquer ponto adicional por ela, sendo indicada para aqueles 
+alunos que desejam aprimorar os seus conhecimentos. \\
+Esta lista tem como meta:
+\begin{itemize}
+ \item Relembrar alguns conceitos de ponteiros.
+\end{itemize}
+
+\section{Exercícios de revisão}
+
+\begin{enumerate}
+ \item Faça um algoritmo que calcule e imprima o tamanho em \emph{bytes} de um 
+  tipo de dados usando aritmética de ponteiros. Crie um ponteiro para cada um 
+  dos tipos de dados a seguir: \emph{float}, \emph{double}, \emph{int}, 
+  \emph{short}, \emph{long} e \emph{char}. Analise cuidadosamente os diferentes 
+  resultados.\\
+  \textbf{Dica:} Comece a verificar os tamanhos partindo do \emph{char} 
+  e utilize o resultado obtido como base para os demais. Por fim recomenda-se 
+  verificar o tamanho dos tipos ponteiros utilizando a macro sizeof (ex.:char 
+  *,   float *, void *).
+
+ \item Um IP (\emph{Internet Protocol}) nada mais é que uma identificação de um 
+  dispositivo em uma rede local ou pública. Na sua versão 4, este é composto por 
+  um endereços de até 32 bits. Faça um programa que tenha um vetor de char com 
+  4 elementos, onde cada um representa uma parte do número IP. Com base em tal 
+  vetor, insira cada um dos elementos dentro de uma única variável int (sabe-se 
+  que um int tem 4 bytes em uma aquitetura 32 bits):\\
+      Ex.: IP de uma máquina da FGA: 164.41.33.152\\
+	  char fields[] = {152, 33, 41, 164};\\
+	  Número inteiro que representa o IP:\\
+	  Byte 0 = 152	// 0x98 em hexa\\
+	  Byte 1 = 33	// 0x21\\
+	  Byte 2 = 41 	// 0x29\\
+	  Byte 3 = 164	// 0xA4\\
+	  ou IP = 0xA4292198\\
+      Observação: Preste atenção ao total de bytes de cada tipo primitivo da 
+      sua máquina (o exercício anterior é útil neste sentido) e ao tipo de 
+      organização da sua arquitetura (\emph{little ending ou big ending}).
+      \textbf{Dica:} Utilize tipos sem sinal e inicialize os valores iniciais.
+
+  \item É comum que no processo de codificação sejam criadas funções 
+    para trabalhar com um determinado tipo nativo (por exemplo, \emph{int}), 
+    contudo, conforme o código passa a crescer surge a necessidade que
+    tal função também trabalhe com outros tipos nativos. Como alternativa, 
+    muitos programadores replicam o trecho de código com o novo tipo ou buscam 
+    alguma solução que exige a implementação de mais código. Neste contexto  
+    crie uma programa que receba um vetor como parâmetro e um valor chave para 
+    ser procurado dentro deste vetor. Faça com que esta função aceite qualquer 
+    tipo de vetor, por exemplo, ela deve aceitar um vetor de \emph{int} ou 
+    \emph{double} sem precisar ser alterada. Use no máximo cinco parâmetros e de 
+    como retorno em caso de sucesso na busca o valor da posição no vetor ou -1 
+    no caso de nada ser encontrado. (Ignore o caso de repetição das chaves, 
+    isto é, retorne a primeira chave encontrada).\\
+    \textbf{Dica:} Utilize o referências do tipo \textbf{void *}.
+
+\end{enumerate}
+
+\end{document}
