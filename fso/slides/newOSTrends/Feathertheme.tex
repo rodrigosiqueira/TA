@@ -1,0 +1,389 @@
+\documentclass[10pt]{beamer}
+\usetheme[
+%%% option passed to the outer theme
+%    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
+  ]{Feather}
+  
+% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
+
+% Change the bar colors:
+%\setbeamercolor{Feather}{fg=red!20,bg=red}
+
+% Change the color of the structural elements:
+%\setbeamercolor{structure}{fg=red}
+
+% Change the frame title text color:
+%\setbeamercolor{frametitle}{fg=blue}
+
+% Change the normal text color background:
+%\setbeamercolor{normal text}{fg=black,bg=gray!10}
+
+%-------------------------------------------------------
+% INCLUDE PACKAGES
+%-------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+
+%-------------------------------------------------------
+% DEFFINING AND REDEFINING COMMANDS
+%-------------------------------------------------------
+
+% colored hyperlinks
+\newcommand{\chref}[2]{
+  \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
+}
+
+%-------------------------------------------------------
+% INFORMATION IN THE TITLE PAGE
+%-------------------------------------------------------
+
+\title[] % [] is optional - is placed on the bottom of the sidebar on every slide
+{ % is placed on the title page
+      \textbf{Sistemas operacionais, o que está errado?}
+}
+
+\subtitle[Sistemas operacionais, o que está errado?]
+{
+}
+
+\author[Rodrigo Siqueira Jordão]
+{      Rodrigo Siqueira Jordão\\
+      {\ttfamily siqueira@kuniri.org}
+}
+
+\institute[]
+{
+      Instituto de Matemática e Estatística\\
+      Univerversidade de São Paulo\\
+  
+  %there must be an empty line above this line - otherwise some unwanted space
+  % is added between the university and the country (I do not know why;( )
+}
+
+\date{\today}
+
+%-------------------------------------------------------
+% THE BODY OF THE PRESENTATION
+%-------------------------------------------------------
+
+\begin{document}
+
+%-------------------------------------------------------
+% THE TITLEPAGE
+%-------------------------------------------------------
+
+{\1% % this is the name of the PDF file for the background
+% the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
+\begin{frame}[plain,noframenumbering] 
+  \titlepage % call the title page information from above
+\end{frame}}
+
+\begin{frame}{Content}{}
+  \tableofcontents
+\end{frame}
+
+%-------------------------------------------------------
+\section{Introduction}
+%-------------------------------------------------------
+\subsection{Innovators Dilemma}
+\begin{frame}{Introduction}{Innovators Dilemma}
+%-------------------------------------------------------
+  \begin{block}{}
+  A variety of interests have invested substantially in current OS structures
+  and view disruption with suspicion.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Introduction}{Technical}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item By following the argument that OS will change, we can identify the
+          most promising paths for OS research.
+  \end{itemize}
+\end{frame}
+
+%=======================================================
+\section{Hardware trends}
+\begin{frame}{Hardware trends}
+  Hardware is changing at the levels of individual devices, cores, board and
+  complete computer systems.
+\end{frame}
+%-------------------------------------------------------
+\subsection{Hardware trends}
+\begin{frame}{Hardware trends}{Complexity}
+  \begin{itemize}
+    \item Large number of peripheral devices are integrated onto a die, each
+          with complex, varying programming models.
+    \item More and more of these devices are now built as specialized processor
+          that execute specialized firmware with little OS integration.
+    \item The view of computer as a single cache-coherent physical address
+          space containing RAM and devices has been a myth for at least the
+          last decade.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Hardware trends}
+\begin{frame}{Hardware trends}{Energy}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item As a system resource to be managed by the OS, energy is now just as
+          important as CPU cycles.
+    \item New OS design is that most of the hardware, can be powered up and
+          down at any point during execution.
+  \end{itemize}
+\end{frame}
+     
+
+%-------------------------------------------------------
+\subsection{Hardware trends}
+\begin{frame}{Hardware trends}{Nonvolatile main memory}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item Nonvolatile main memories to become prevalent.
+    \begin{itemize}
+      \item Packaging, cost, and power efficiency will make it possible to
+            architect and deploy far more nonvolatile RAM.
+    \end{itemize}
+    \item With large numbers of heterogeneous processors, this memory will be
+          highly distributed but perhaps not in the way we see today.
+      \begin{itemize}
+        \item Photonic interconnects
+        \item High-radix
+      \end{itemize}
+    \item In the longer term, memory controllers are likely to become more
+          intelligent and programmable at the OS level.
+   \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Hardware trends}
+\begin{frame}{Hardware trends}{System}
+%-------------------------------------------------------
+  \begin{block}{}
+    Boundaries of today's machine are different from traditional scale-up and
+    scale-out systems.
+   \end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Hardware trends}
+\begin{frame}{Hardware trends}{Diversity}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item SoC were always heterogeneous, but they were used in special-purpose
+          systems; now they were used in general-purpose systems.
+      \begin{itemize}
+        \item "Engineering a general-purpose OS that can be used widely and
+             evolve as hardware as hardware changes is a formidable challenge"
+      \end{itemize}
+   \end{itemize}
+\end{frame}
+
+%=======================================================
+\section{Application Changes}
+\begin{frame}{Application Changes}{}
+%-------------------------------------------------------
+The ways in which computers are used and the application that run on them are
+also changing:
+
+  \begin{itemize}
+    \item Challenge: Current OSs don't match up well with the applications
+          they're called on to support.
+    \item Opportunity: The burden of history is light. Applications are very
+          different now, granting us the freedom to change the OS interface.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Application Changes}
+\begin{frame}{Application Changes}{Rack-scale}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item It's the next step of cloud computing.
+    \begin{itemize}
+      \item The authors seeing a new trend: deploy software as appliances
+            (tin-wrapped) in a rack-scale.
+      \item "Rack-scale: it is a big step by re-architecting cloud platform"
+    \end{itemize}
+    \item Appliances usually consist of a collection of server machines and
+          optional custom hardware accelerators, connected by a high-bandwidth
+          internal network such as infiniband.
+    \item Tin-wrapped software, is attractive to software vendor by two main
+          reasons:
+      \begin{enumerate}
+        \item Vendor controls the hardware platform that the OS runs on,
+               support cost are greatly reduced.
+        \item Software also allows vendors to introduce custom hardware that
+              doesn't have to be compatible with every customer's existing
+              systems.
+      \end{enumerate}
+    \item Rack-scale application often exploit the lowest-latency communication
+          mechanisms available, such as RDMA.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Application Changes}
+\begin{frame}{Application Changes}{Datacenter challenges}
+%-------------------------------------------------------
+  \begin{enumerate}
+    \item Application deployment, upgrades, and maintenance.
+    \item Code must be upgraded across thousands of machines in a coordinated
+          manner, often without suffering from down.
+    \item Cloud service in datacenter often have much more complex requirement
+          from the infrastructure.
+     \begin{itemize}
+      \item Increase in software - Defined network (SDN).
+     \end{itemize}
+    \item Application security requirements have also radically changed.
+    \item Application increasingly span centralized data center services.
+  \end{enumerate}
+\end{frame}
+
+
+%=======================================================
+\section{What's broken?}
+%-------------------------------------------------------
+\begin{frame}{Application Changes}{Datacenter challenges}
+%-------------------------------------------------------
+Actually, nothing! The real problem is: The fundamental concept are outdated.
+  \begin{itemize}
+    \item It's remarkable how many assumptions about OS design embodied in
+      modern system like GNU/Linux and Windows are either violated or
+      irrelevant.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{What's broken?}
+%-------------------------------------------------------
+\begin{frame}{What's broken?}{Single monolithic kernel}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item Concepts at modern OS.
+      \begin{itemize}
+        \item Single, multithreaded
+        \item Shared-memory
+        \item Handle interrupts and system calls
+      \end{itemize}
+    \item The problem with these concepts:
+      \begin{itemize}
+        \item Doesn't work on a machine with heterogeneous processors;
+        \item Different instruction sets;
+        \item Memory that's not completely coherent;
+        \item Exists at different address as seen by different cores;
+      \end{itemize}
+    \item Current kernels can be trusted with few gigabytes of memory, however
+          machines with petabytes of memory can generate failures.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{What's broken?}
+%-------------------------------------------------------
+\begin{frame}{What's broken?}{Authorization and security}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item The security challenges we face today:
+    \begin{enumerate}
+      \item Privacy;
+      \item Information flow;
+      \item Untrusted applications running with user privileges;
+      \item Social network with billions of users;
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{What's broken?}
+%-------------------------------------------------------
+\begin{frame}{What's broken?}{Scheduling}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item Modern OS schedulers manage process or threads as basic unit of CPU
+          allocation. However for modern multicore hardware and typical
+          applications, this is irrelevant.
+    \begin{itemize}
+      \item On a single machine, an application spans multiple process and
+            threads, and calls out to server process it shares with other
+            programs. Moreover, dynamic migration of threads to balance the
+            load across cores makes no sense when cores are radically
+            heterogeneous, and where the objective is to optimize energy usage
+            subject to fix performance goals.
+      \item Effective spatial scheduling, rather than temporal scheduling,
+            becomes the key challenge.
+      \item In rack-scale machines, an application is inherently distributed.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{What's broken?}
+%-------------------------------------------------------
+\begin{frame}{What's broken?}{Virtual memory}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item Page-based address translation hardware was originally designed to
+          allow applications to use more memory than was physically present in
+          the machine via demand paging.
+    \item Paging almost never happens today, and large machines in the future
+          are likely to have much more memory than can be represented in the
+          virtual address space.
+  \end{itemize}
+\end{frame}
+
+%=======================================================
+\section{Outlook}
+%-------------------------------------------------------
+\begin{frame}{Outlook}{Architecture}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item The future OS will be distributed in architecture. A single kernel
+          isn't going to work with heterogeneous processors, memory that isn't
+          accessible from all cores, or partial cache coherence.
+    \item There will be multiple kernels in a single machine, and some kind of
+          message passing is inevitable. The result will be something between a
+          single machine and traditional cluster.
+    \item The virtual machines or containers still need a hypervisor
+          underneath, which is an OS. Moreover, we've already observed that
+          application are increasingly parallel and distributed.
+    \item Containers are important: They make it easy to deploy traditional
+          applications in virtualized traditional OS environment. Their low
+          overhead allows applications to be restructured into much more
+          scalable microservices, and enables a model of continuous
+          re-engineering, refactoring, and redeployment. However, they don't
+          yet adequately address the challenges of future hardware and scalable
+          applications.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Outlook}
+%-------------------------------------------------------
+\begin{frame}{Outlook}{Memory}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item In most application scenarios, main memories will be very large and
+          mostly persistent, and only cold date will be kept on disk.
+    \item Memory contents will persist across reboots, and files will be
+          partially replaced with persistent in-memory data structure.
+    \item A future OS is going to have to provide something like sophisticated
+          transactional facility to make persistent main memory usable.
+          Sometimes remembering all the data isn't desirable across reboot.
+    \item Instead of a virtual address space, applications will be given a much
+          more explicit handle on the region of physical memory allocated to
+          them, and more freedom in safely programming the MMU to exploit
+          hardware translation feature from application runtime
+  \end{itemize}
+\end{frame}
+
+{\1
+\begin{frame}[plain,noframenumbering]
+  \finalpage{Thank you!}
+\end{frame}}
+
+\end{document}
