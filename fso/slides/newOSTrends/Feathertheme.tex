@@ -42,10 +42,10 @@
 
 \title[] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-      \textbf{Sistemas operacionais, o que está errado?}
+      \textbf{Operating Systems, What's broken?}
 }
 
-\subtitle[Sistemas operacionais, o que está errado?]
+\subtitle[Operating Systems, What's broken?]
 {
 }
 
@@ -56,8 +56,8 @@
 
 \institute[]
 {
-      Instituto de Matemática e Estatística\\
-      Univerversidade de São Paulo\\
+      Institute of Mathematics and Statistics\\
+      University of Sao Paulo\\
   
   %there must be an empty line above this line - otherwise some unwanted space
   % is added between the university and the country (I do not know why;( )
@@ -85,40 +85,88 @@
   \tableofcontents
 \end{frame}
 
-%-------------------------------------------------------
+%=======================================================
 \section{Introduction}
+%=======================================================
+\begin{frame}{Introduction}
 %-------------------------------------------------------
-\subsection{Innovators Dilemma}
-\begin{frame}{Introduction}{Innovators Dilemma}
+  \begin{figure}[ht]
+    \vspace{5pt}
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/designwontchange.jpg}
+    \caption {Design won't change}
+    \label {assembler}
+  \end{figure}
+\end{frame}
+
 %-------------------------------------------------------
-  \begin{block}{}
+\begin{frame}{OS design won't change}
+%-------------------------------------------------------
+  \begin{itemize}
+    \item Requirement for backward compatibility; \pause
+    \item UNIX model's historical resilience and; \pause
+    \item If it ain't broke, don't fix it.
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\begin{frame}{Innovators Dilemma}{Introduction}
+%-------------------------------------------------------
+
+  \begin{block}{Innovators Dilemma}
   A variety of interests have invested substantially in current OS structures
   and view disruption with suspicion.
   \end{block}
+
+  \begin{figure}[ht]
+    \hspace{-120pt}
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/frysuspicious.jpg}
+  \end{figure}
+
 \end{frame}
 
-\begin{frame}{Introduction}{Technical}
+\begin{frame}{Technical}{Introduction}
 %-------------------------------------------------------
-  \begin{itemize}
-    \item By following the argument that OS will change, we can identify the
-          most promising paths for OS research.
-  \end{itemize}
+  \begin{block}{Technical}
+  By following the argument that OS will change, we can identify the
+  most promising paths for OS research.
+  \end{block}
+
+  \begin{figure}[ht]
+    \hspace{100pt}
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/technical.jpg}
+  \end{figure}
+
 \end{frame}
 
 %=======================================================
 \section{Hardware trends}
 \begin{frame}{Hardware trends}
+
+  \begin{figure}[ht]
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/hwAndAppChangeFast.png}
+  \end{figure}\pause
+
+  \begin{block}{}
   Hardware is changing at the levels of individual devices, cores, board and
   complete computer systems.
+  \end{block}
+
 \end{frame}
 %-------------------------------------------------------
-\subsection{Hardware trends}
-\begin{frame}{Hardware trends}{Complexity}
+\subsection{Complexity}
+
+\begin{frame}{Complexity}{Hardware trends}
+
+  \begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/integrated.jpg}
+  \end{figure}\pause
+
   \begin{itemize}
     \item Large number of peripheral devices are integrated onto a die, each
-          with complex, varying programming models.
+          with complex, varying programming models; \pause
     \item More and more of these devices are now built as specialized processor
-          that execute specialized firmware with little OS integration.
+          that execute specialized firmware with little OS integration; \pause
     \item The view of computer as a single cache-coherent physical address
           space containing RAM and devices has been a myth for at least the
           last decade.
@@ -126,43 +174,62 @@
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Hardware trends}
-\begin{frame}{Hardware trends}{Energy}
+\subsection{Energy}
+\begin{frame}{Energy}{Hardware trends}
 %-------------------------------------------------------
+  \begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/energy.png}
+  \end{figure} \pause
+
   \begin{itemize}
     \item As a system resource to be managed by the OS, energy is now just as
-          important as CPU cycles.
+          important as CPU cycles. \pause
     \item New OS design is that most of the hardware, can be powered up and
           down at any point during execution.
   \end{itemize}
 \end{frame}
-     
+
 
 %-------------------------------------------------------
-\subsection{Hardware trends}
-\begin{frame}{Hardware trends}{Nonvolatile main memory}
+\subsection{Nonvolatile main memory}
+\begin{frame}{Nonvolatile main memory}{Hardware trends}
 %-------------------------------------------------------
-  \begin{itemize}
-    \item Nonvolatile main memories to become prevalent.
-    \begin{itemize}
-      \item Packaging, cost, and power efficiency will make it possible to
-            architect and deploy far more nonvolatile RAM.
-    \end{itemize}
-    \item With large numbers of heterogeneous processors, this memory will be
-          highly distributed but perhaps not in the way we see today.
+  \begin{columns}[T] % align columns
+    \begin{column}{.2\textwidth}
+      \begin{figure}[ht]
+        \includegraphics[width=1.8\textwidth, keepaspectratio=true]{images/nvm.jpg}
+      \end{figure} \pause
+    \end{column}%
+
+    \hfill%
+    \begin{column}{.7\textwidth}
       \begin{itemize}
-        \item Photonic interconnects
-        \item High-radix
+        \item Nonvolatile main memories to become prevalent.
+        \begin{itemize}
+          \item Packaging, cost, and power efficiency will make it possible to
+                architect and deploy far more nonvolatile RAM. \pause
+        \end{itemize}
+        \item With large numbers of heterogeneous processors, this memory will be
+              highly distributed but perhaps not in the way we see today. \pause
+          \begin{itemize}
+            \item Photonic interconnects
+            \item High-radix
+          \end{itemize} \pause
+        \item In the longer term, memory controllers are likely to become more
+              intelligent and programmable at the OS level.
       \end{itemize}
-    \item In the longer term, memory controllers are likely to become more
-          intelligent and programmable at the OS level.
-   \end{itemize}
+    \end{column}%
+\end{columns}
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Hardware trends}
-\begin{frame}{Hardware trends}{System}
+\subsection{System}
+\begin{frame}{System}{Hardware trends}
 %-------------------------------------------------------
+  \begin{figure}[ht]
+    \includegraphics[width=0.6\textwidth, keepaspectratio=true]{images/boundary.jpg}
+  \end{figure} \pause
+
   \begin{block}{}
     Boundaries of today's machine are different from traditional scale-up and
     scale-out systems.
@@ -170,8 +237,8 @@
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Hardware trends}
-\begin{frame}{Hardware trends}{Diversity}
+\subsection{Diversity}
+\begin{frame}{Diversity}{Hardware trends}
 %-------------------------------------------------------
   \begin{itemize}
     \item SoC were always heterogeneous, but they were used in special-purpose
@@ -185,7 +252,7 @@
 
 %=======================================================
 \section{Application Changes}
-\begin{frame}{Application Changes}{}
+\begin{frame}{Application Changes}
 %-------------------------------------------------------
 The ways in which computers are used and the application that run on them are
 also changing:
@@ -199,8 +266,8 @@ also changing:
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Application Changes}
-\begin{frame}{Application Changes}{Rack-scale}
+\subsection{Rack-scale}
+\begin{frame}{Rack-scale}{Application Changes}
 %-------------------------------------------------------
   \begin{itemize}
     \item It's the next step of cloud computing.
@@ -227,8 +294,8 @@ also changing:
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Application Changes}
-\begin{frame}{Application Changes}{Datacenter challenges}
+\subsection{Datacenter challenges}
+\begin{frame}{Datacenter challenges}{Application Changes}
 %-------------------------------------------------------
   \begin{enumerate}
     \item Application deployment, upgrades, and maintenance.
@@ -248,7 +315,7 @@ also changing:
 %=======================================================
 \section{What's broken?}
 %-------------------------------------------------------
-\begin{frame}{Application Changes}{Datacenter challenges}
+\begin{frame}{What's broken?}
 %-------------------------------------------------------
 Actually, nothing! The real problem is: The fundamental concept are outdated.
   \begin{itemize}
@@ -259,9 +326,9 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{What's broken?}
+\subsection{Single monolithic kernel}
 %-------------------------------------------------------
-\begin{frame}{What's broken?}{Single monolithic kernel}
+\begin{frame}{Single monolithic kernel}{What's broken?}
 %-------------------------------------------------------
   \begin{itemize}
     \item Concepts at modern OS.
@@ -283,9 +350,9 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{What's broken?}
+\subsection{Authorization and security}
 %-------------------------------------------------------
-\begin{frame}{What's broken?}{Authorization and security}
+\begin{frame}{Authorization and security}{What's broken?}
 %-------------------------------------------------------
   \begin{itemize}
     \item The security challenges we face today:
@@ -299,9 +366,9 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{What's broken?}
+\subsection{Scheduling}
 %-------------------------------------------------------
-\begin{frame}{What's broken?}{Scheduling}
+\begin{frame}{Scheduling}{What's broken?}
 %-------------------------------------------------------
   \begin{itemize}
     \item Modern OS schedulers manage process or threads as basic unit of CPU
@@ -322,9 +389,9 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{What's broken?}
+\subsection{Virtual memory}
 %-------------------------------------------------------
-\begin{frame}{What's broken?}{Virtual memory}
+\begin{frame}{Virtual memory}{What's broken?}
 %-------------------------------------------------------
   \begin{itemize}
     \item Page-based address translation hardware was originally designed to
@@ -339,7 +406,7 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %=======================================================
 \section{Outlook}
 %-------------------------------------------------------
-\begin{frame}{Outlook}{Architecture}
+\begin{frame}{Architecture}{Outlook}
 %-------------------------------------------------------
   \begin{itemize}
     \item The future OS will be distributed in architecture. A single kernel
@@ -362,9 +429,9 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 \end{frame}
 
 %-------------------------------------------------------
-\subsection{Outlook}
+\subsection{Memory}
 %-------------------------------------------------------
-\begin{frame}{Outlook}{Memory}
+\begin{frame}{Memory}{Outlook}
 %-------------------------------------------------------
   \begin{itemize}
     \item In most application scenarios, main memories will be very large and
