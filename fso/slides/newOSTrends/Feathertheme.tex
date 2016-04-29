@@ -42,10 +42,10 @@
 
 \title[] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-      \textbf{Operating Systems, What's broken?}
+      \textbf{Operating Systems, What is broken?}
 }
 
-\subtitle[Operating Systems, What's broken?]
+\subtitle[Operating Systems, What is broken?]
 {
 }
 
@@ -81,29 +81,38 @@
   \titlepage % call the title page information from above
 \end{frame}}
 
-\begin{frame}{Content}{}
+\begin{frame}[shrink]{Content}{}
   \tableofcontents
 \end{frame}
 
 %=======================================================
 \section{Introduction}
 %=======================================================
+\begin{frame}{Introduction}{My References}
+
+  \begin{itemize}
+    \item Outlook on Operating Systems;
+    \item Beyond processor-centric operating systems;
+    \item The multikernel: A new OS architecture for scalable multicore systems;
+    \item Not your parents's physical address space;
+    \item SpaceJMP: Programming with multiple virtual address space.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Introduction}
 %-------------------------------------------------------
   \begin{figure}[ht]
     \vspace{5pt}
     \centering
     \includegraphics[width=1\textwidth, keepaspectratio=true]{images/designwontchange.jpg}
-    \caption {Design won't change}
-    \label {assembler}
   \end{figure}
 \end{frame}
 
 %-------------------------------------------------------
-\begin{frame}{OS design won't change}
+\begin{frame}{OS design won't change}{Introduction}
 %-------------------------------------------------------
   \begin{itemize}
-    \item Requirement for backward compatibility; \pause
+    \item Backward compatibility; \pause
     \item UNIX model's historical resilience and; \pause
     \item If it ain't broke, don't fix it.
   \end{itemize}
@@ -227,12 +236,17 @@
 \begin{frame}{System}{Hardware trends}
 %-------------------------------------------------------
   \begin{figure}[ht]
-    \includegraphics[width=0.6\textwidth, keepaspectratio=true]{images/boundary.jpg}
+    \includegraphics[width=0.4\textwidth, keepaspectratio=true]{images/boundary.jpg}
   \end{figure} \pause
 
   \begin{block}{}
     Boundaries of today's machine are different from traditional scale-up and
     scale-out systems.
+   \end{block}
+
+   \begin{block}{Traditional OS definition}
+      An OS is a collection of system software that manages the complete
+      hardware platform and securely multiplexes resources tasks.
    \end{block}
 \end{frame}
 
@@ -310,20 +324,35 @@
 
 %-------------------------------------------------------
 \subsection{Rack-scale}
+
 \begin{frame}{Rack-scale}{Application Changes}
-%-------------------------------------------------------
+  \begin{columns}[T]
+    \begin{column}{.4\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\textwidth, keepaspectratio=true]{images/rack_scale.jpg}
+      \end{figure}
+    \end{column}
+
+    \hfill
+    \begin{column}{.5\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1.3\textwidth, keepaspectratio=true]{images/exadata.jpg}
+      \end{figure}
+   \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Rack-scale}{Application Changes}
   \begin{itemize}
-    \item It's the next step of cloud computing.
-    \begin{itemize}
-      \item The authors seeing a new trend: deploy software as appliances
-            (tin-wrapped) in a rack-scale.
-      \item "Rack-scale: it is a big step by re-architecting cloud platform"
-    \end{itemize}
+    \item A new trend: deploy software as appliances (tin-wrapped) in a
+          rack-scale. \pause
     \item Appliances usually consist of a collection of server machines and
           optional custom hardware accelerators, connected by a high-bandwidth
-          internal network such as infiniband.
+          internal network such as infiniband. \pause
     \item Tin-wrapped software, is attractive to software vendor by two main
-          reasons:
+          reasons: \pause
       \begin{enumerate}
         \item Vendor controls the hardware platform that the OS runs on,
                support cost are greatly reduced.
@@ -331,11 +360,21 @@
               doesn't have to be compatible with every customer's existing
               systems.
       \end{enumerate}
-    \item Rack-scale application often exploit the lowest-latency communication
-          mechanisms available, such as RDMA.
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Rack-scale}{Application Changes}
+  \begin{block}{}
+    Rack-scale application often exploit the lowest-latency communication
+    mechanisms available, such as RDMA.
+  \end{block}
+
+  \begin{block}{}
+    Memory management and protection in the OS becomes a distributed
+    systems problem.
+  \end{block}
+ 
+\end{frame}
 %-------------------------------------------------------
 \subsection{Datacenter challenges}
 \begin{frame}{Datacenter challenges}{Application Changes}
@@ -355,11 +394,14 @@
     \item Cloud service in datacenter often have much more complex requirement
           from the infrastructure. \pause
      \begin{itemize}
-      \item Increase in software - Defined network (SDN). \pause
+      \item Increase in software - Software Defined Network (SDN). \pause
      \end{itemize}
     \item Application security requirements have also radically changed. \pause
-    \item Application increasingly span centralized data center services.
   \end{enumerate}
+
+  \begin{block}{}
+    Application grew to include many process in the same OS.
+  \end{block}
 \end{frame}
 
 %=======================================================
@@ -428,14 +470,10 @@
     \item Doesn't work on a machine with heterogeneous processors; \pause
     \item Different instruction sets; \pause
     \item Memory that's not completely coherent; \pause
-    \item Exists at different address as seen by different cores; \pause
     \item Current kernels can be trusted with few gigabytes of memory, however
           machines with petabytes of memory can generate failures.
   \end{itemize}
 
-  \begin{block}
-    Modern computers Vs. Distributed Systems
-  \end{block}
 \end{frame}
 
 %-------------------------------------------------------
@@ -560,8 +598,8 @@
   \end{block}
 
   \begin{block}{}
-    De-multiplex network flows between end-system cores in the network
-    interface controller hardware, using direct memory access (DMA) to write
+    De-multiplex network flows between end-system cores in the Network
+    Interface Controller (NIC) hardware, using direct memory access (DMA) to write
     into a large number of different ring buffers.
   \end{block}
 
@@ -569,13 +607,11 @@
 
 \begin{frame}{Network Stack}{What's broken?}
   \begin{itemize}
-    \item Slower cores relative to the network mean that every CPU cycle on the
-          data path counts. This happened first in virtual machine monitors and
-          spurred the adoption of technologies such as Single Root I/O
-          virtualization. \pause
-    \item NIC is no longer an interface. That makes forwarding decision at all
-          layer of the traditional protocol stack. The role of the future OS is
-          to implement the control plane for this switch.
+    \item The kernel is bypassed by the data plane because it constitutes a
+          serial bottleneck even in modern, highly optimized network stack
+          and because it avoids expensive kernel crossings.\pause
+    \item The role of the future OS is to implement the control plane for this
+          switch.
   \end{itemize}
 \end{frame}
 %=======================================================
@@ -599,14 +635,7 @@
           single machine and traditional cluster. \pause
     \item The virtual machines or containers still need a hypervisor
           underneath, which is an OS\@. Moreover, we have already observed that
-          application are increasingly parallel and distributed. \pause
-    \item Containers are important: They make it easy to deploy traditional
-          applications in virtualized traditional OS environment. Their low
-          overhead allows applications to be restructured into much more
-          scalable microservices, and enables a model of continuous
-          re-engineering, refactoring, and redeployment. However, they don't
-          yet adequately address the challenges of future hardware and scalable
-          applications.
+          application are increasingly parallel and distributed.
   \end{itemize}
 \end{frame}
 
@@ -642,7 +671,7 @@
     code to interface.
   \end{block}
 
-  \begin{block}
+  \begin{block}{}
     OS abstraction for this will resemble a more advanced form of those being
     formulated for SDN.
   \end{block}
@@ -672,10 +701,16 @@
 \end{frame}
 
 %-------------------------------------------------------
-\section{Conclusion}
+\section{Future directions and Conclusion}
 %-------------------------------------------------------
 \begin{frame}{Conclusion}{}
 %-------------------------------------------------------
+  \begin{itemize}
+    \item Opportunity;
+    \item Many option for research areas;
+    \item Work with Barrelfish and other new OSs;
+  \end{itemize}
+
 \end{frame}
 
 {\1
