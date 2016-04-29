@@ -50,7 +50,7 @@
 }
 
 \author[Rodrigo Siqueira Jordão]
-{      Rodrigo Siqueira Jordão\\
+{      Rodrigo Siqueira Jordão \\
       {\ttfamily siqueira@kuniri.org}
 }
 
@@ -207,14 +207,14 @@
         \item Nonvolatile main memories to become prevalent.
         \begin{itemize}
           \item Packaging, cost, and power efficiency will make it possible to
-                architect and deploy far more nonvolatile RAM. \pause
+                architect and deploy far more nonvolatile RAM.\pause
         \end{itemize}
         \item With large numbers of heterogeneous processors, this memory will be
-              highly distributed but perhaps not in the way we see today. \pause
+              highly distributed but perhaps not in the way we see today.\pause
           \begin{itemize}
             \item Photonic interconnects
             \item High-radix
-          \end{itemize} \pause
+          \end{itemize}\pause
         \item In the longer term, memory controllers are likely to become more
               intelligent and programmable at the OS level.
       \end{itemize}
@@ -240,13 +240,18 @@
 \subsection{Diversity}
 \begin{frame}{Diversity}{Hardware trends}
 %-------------------------------------------------------
+  \begin{figure}[ht]
+    \includegraphics[width=0.4\textwidth, keepaspectratio=true]{images/diversity.jpg}
+  \end{figure} \pause
+
   \begin{itemize}
     \item SoC were always heterogeneous, but they were used in special-purpose
-          systems; now they were used in general-purpose systems.
+          systems; now they were used in general-purpose systems.\pause
       \begin{itemize}
-        \item "Engineering a general-purpose OS that can be used widely and
-             evolve as hardware as hardware changes is a formidable challenge"
-      \end{itemize}
+        \item ``Engineering a general-purpose OS that can be used widely and
+             evolve as hardware as hardware changes is a formidable challenge''
+      \end{itemize}\pause
+    \item Hardware adapts and diversifies much faster today than system does.
    \end{itemize}
 \end{frame}
 
@@ -254,15 +259,53 @@
 \section{Application Changes}
 \begin{frame}{Application Changes}
 %-------------------------------------------------------
-The ways in which computers are used and the application that run on them are
-also changing:
+  \begin{figure}[ht]
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/application.png}
+  \end{figure}
 
-  \begin{itemize}
-    \item Challenge: Current OSs don't match up well with the applications
-          they're called on to support.
-    \item Opportunity: The burden of history is light. Applications are very
-          different now, granting us the freedom to change the OS interface.
-  \end{itemize}
+  \begin{block}{}
+    The ways in which computers are used and the application that run on them
+    are also changing:
+  \end{block}
+\end{frame}
+
+\begin{frame}{Application Changes}{Challenge}
+%-------------------------------------------------------
+  \begin{columns}[T] % align columns
+    \begin{column}{.2\textwidth}
+      \begin{figure}[ht]
+        \includegraphics[width=1.5\textwidth, keepaspectratio=true]{images/challenge.png}
+      \end{figure}
+    \end{column}
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      \begin{block}{Challenge}
+        Current OSs don't match up well with the applications they're called on to
+        support.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Application Changes}{Opportunity}
+%-------------------------------------------------------
+  \begin{columns}[T] % align columns
+    \begin{column}{.5\textwidth}
+      \begin{block}{Opportunity}
+        The burden of history is light. Applications are very different now,
+        granting us the freedom to change the OS interface.
+      \end{block}
+    \end{column}
+
+    \hfill
+    \begin{column}{.4\textwidth}
+      \begin{figure}[ht]
+        \includegraphics[width=1\textwidth, keepaspectratio=true]{images/opportunity.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
 \end{frame}
 
 %-------------------------------------------------------
@@ -297,32 +340,54 @@ also changing:
 \subsection{Datacenter challenges}
 \begin{frame}{Datacenter challenges}{Application Changes}
 %-------------------------------------------------------
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/datacenter.jpg}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Datacenter challenges}{Application Changes}
+%-------------------------------------------------------
   \begin{enumerate}
-    \item Application deployment, upgrades, and maintenance.
+    \item Application deployment, upgrades, and maintenance. \pause
     \item Code must be upgraded across thousands of machines in a coordinated
-          manner, often without suffering from down.
+          manner, often without suffering from down. \pause
     \item Cloud service in datacenter often have much more complex requirement
-          from the infrastructure.
+          from the infrastructure. \pause
      \begin{itemize}
-      \item Increase in software - Defined network (SDN).
+      \item Increase in software - Defined network (SDN). \pause
      \end{itemize}
-    \item Application security requirements have also radically changed.
+    \item Application security requirements have also radically changed. \pause
     \item Application increasingly span centralized data center services.
   \end{enumerate}
 \end{frame}
 
-
 %=======================================================
 \section{What's broken?}
 %-------------------------------------------------------
+\begin{frame}{What's broken?}{}
+%-------------------------------------------------------
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/whatsbroken.jpg}
+  \end{figure}
+\end{frame}
+%------------------------------------------------------
 \begin{frame}{What's broken?}
 %-------------------------------------------------------
-Actually, nothing! The real problem is: The fundamental concept are outdated.
-  \begin{itemize}
-    \item It's remarkable how many assumptions about OS design embodied in
-      modern system like GNU/Linux and Windows are either violated or
-      irrelevant.
-  \end{itemize}
+  \begin{block}{}
+    The real problem is: The fundamental concept are outdated.
+  \end{block} \pause
+
+  \begin{block}{}
+    It's remarkable how many assumptions about OS design embodied in
+    modern system like GNU/Linux and Windows are either violated or
+    irrelevant.
+  \end{block}
+
+  \begin{block}{}
+    What will such an OS look like?
+  \end{block}
 \end{frame}
 
 %-------------------------------------------------------
@@ -330,23 +395,47 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %-------------------------------------------------------
 \begin{frame}{Single monolithic kernel}{What's broken?}
 %-------------------------------------------------------
+  \begin{columns}[T]
+    \begin{column}{.3\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/monolith.png}
+      \end{figure}
+    \end{column} \pause
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      \begin{block}{}
+        Concepts at modern OS.
+      \end{block} \pause
+
+      \begin{itemize}
+        \item Single, multithreaded; \pause
+        \item Shared-memory; \pause
+        \item Handle interrupts and system calls.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Single monolithic kernel}{What's broken?}
+%-------------------------------------------------------
+  \begin{block}{}
+    The problem with these concepts:
+  \end{block} \pause
+
   \begin{itemize}
-    \item Concepts at modern OS.
-      \begin{itemize}
-        \item Single, multithreaded
-        \item Shared-memory
-        \item Handle interrupts and system calls
-      \end{itemize}
-    \item The problem with these concepts:
-      \begin{itemize}
-        \item Doesn't work on a machine with heterogeneous processors;
-        \item Different instruction sets;
-        \item Memory that's not completely coherent;
-        \item Exists at different address as seen by different cores;
-      \end{itemize}
+    \item Doesn't work on a machine with heterogeneous processors; \pause
+    \item Different instruction sets; \pause
+    \item Memory that's not completely coherent; \pause
+    \item Exists at different address as seen by different cores; \pause
     \item Current kernels can be trusted with few gigabytes of memory, however
           machines with petabytes of memory can generate failures.
   \end{itemize}
+
+  \begin{block}
+    Modern computers Vs. Distributed Systems
+  \end{block}
 \end{frame}
 
 %-------------------------------------------------------
@@ -354,15 +443,34 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %-------------------------------------------------------
 \begin{frame}{Authorization and security}{What's broken?}
 %-------------------------------------------------------
-  \begin{itemize}
-    \item The security challenges we face today:
-    \begin{enumerate}
-      \item Privacy;
-      \item Information flow;
-      \item Untrusted applications running with user privileges;
-      \item Social network with billions of users;
-    \end{enumerate}
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{.3\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.8\textwidth, keepaspectratio=true]{images/authorization.png}
+      \end{figure}
+    \end{column}
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      \begin{block}{}
+        The security challenges we face today:
+      \end{block} \pause
+
+      \begin{enumerate}
+        \item Privacy; \pause
+        \item Information flow; \pause
+        \item Untrusted applications running with user privileges; \pause
+        \item Social network with billions of users;
+      \end{enumerate}
+     \end{column}
+  \end{columns}
+
+  \begin{block}{}
+    A fine-grained authorization mechanism like that afforded by capabilities,
+    perhaps combined with a concept of distributed information flow control
+    at scale, could be the way forward.
+  \end{block}
 \end{frame}
 
 %-------------------------------------------------------
@@ -370,22 +478,45 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %-------------------------------------------------------
 \begin{frame}{Scheduling}{What's broken?}
 %-------------------------------------------------------
+  \begin{columns}[T]
+    \begin{column}{.2\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.6\textwidth, keepaspectratio=true]{images/scheduler.png}
+      \end{figure}
+    \end{column}
+
+    \hfill
+    \begin{column}{.8\textwidth}
+      \begin{block}{}
+        Modern OS schedulers manage process or threads as basic unit of CPU
+        allocation. 
+      \end{block} \pause
+
+      \begin{block}{}
+        For modern multicore hardware and typical applications this is irrelevant.
+      \end{block}
+      \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Scheduling}{What's broken?}
   \begin{itemize}
-    \item Modern OS schedulers manage process or threads as basic unit of CPU
-          allocation. However for modern multicore hardware and typical
-          applications, this is irrelevant.
+    \item On a single machine, an application spans multiple process and
+      threads, and calls out to server process it shares with other
+      programs. \pause
     \begin{itemize}
-      \item On a single machine, an application spans multiple process and
-            threads, and calls out to server process it shares with other
-            programs. Moreover, dynamic migration of threads to balance the
-            load across cores makes no sense when cores are radically
-            heterogeneous, and where the objective is to optimize energy usage
-            subject to fix performance goals.
-      \item Effective spatial scheduling, rather than temporal scheduling,
-            becomes the key challenge.
-      \item In rack-scale machines, an application is inherently distributed.
+      \item Dynamic migration of threads to balance the load across
+            cores makes no sense when cores are radically heterogeneous,
+            and where the objective is to optimize energy usage subject
+            to fix performance goals.
+      \end{itemize} \pause
+    \item Effective spatial scheduling, rather than temporal scheduling,
+          becomes the key challenge. \pause
+      \begin{itemize}
+        \item In rack-scale machines, an application is inherently distributed.
+      \end{itemize}
     \end{itemize}
-  \end{itemize}
 \end{frame}
 
 %-------------------------------------------------------
@@ -393,31 +524,82 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %-------------------------------------------------------
 \begin{frame}{Virtual memory}{What's broken?}
 %-------------------------------------------------------
-  \begin{itemize}
-    \item Page-based address translation hardware was originally designed to
-          allow applications to use more memory than was physically present in
-          the machine via demand paging.
-    \item Paging almost never happens today, and large machines in the future
-          are likely to have much more memory than can be represented in the
-          virtual address space.
-  \end{itemize}
+  \begin{columns}[T]
+    \begin{column}{.2\textwidth}
+      \begin{figure}[ht]
+        \centering
+        \includegraphics[width=1\textwidth, keepaspectratio=true]{images/vm.png}
+      \end{figure}
+    \end{column}
+
+    \hfill
+    \begin{column}{.8\textwidth}
+      \begin{block}{}
+        Page-based address translation hardware was originally designed to
+        allow applications to use more memory than was physically present in
+        the machine via demand paging.
+      \end{block}\pause
+
+      \begin{block}{}
+        Paging almost never happens today, and large machines in the future
+        are likely to have much more memory than can be represented in the
+        virtual address space.
+      \end{block}
+    \end{column}
+  \end{columns}
 \end{frame}
 
+%-------------------------------------------------------
+\subsection{Network Stack}
+%-------------------------------------------------------
+\begin{frame}{Network Stack}{What's broken?}
+%-------------------------------------------------------
+  \begin{block}{}
+    Network bandwidth to an adaptor is still increasing, but the speed of
+    individual processing core is decreasing. \pause
+  \end{block}
+
+  \begin{block}{}
+    De-multiplex network flows between end-system cores in the network
+    interface controller hardware, using direct memory access (DMA) to write
+    into a large number of different ring buffers.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}{Network Stack}{What's broken?}
+  \begin{itemize}
+    \item Slower cores relative to the network mean that every CPU cycle on the
+          data path counts. This happened first in virtual machine monitors and
+          spurred the adoption of technologies such as Single Root I/O
+          virtualization. \pause
+    \item NIC is no longer an interface. That makes forwarding decision at all
+          layer of the traditional protocol stack. The role of the future OS is
+          to implement the control plane for this switch.
+  \end{itemize}
+\end{frame}
 %=======================================================
 \section{Outlook}
 %-------------------------------------------------------
+\begin{frame}{Architecture}{Outlook}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/outlook.jpg}
+  \end{figure}
+\end{frame}
+
 \begin{frame}{Architecture}{Outlook}
 %-------------------------------------------------------
   \begin{itemize}
     \item The future OS will be distributed in architecture. A single kernel
           isn't going to work with heterogeneous processors, memory that isn't
-          accessible from all cores, or partial cache coherence.
+          accessible from all cores, or partial cache coherence. \pause
     \item There will be multiple kernels in a single machine, and some kind of
           message passing is inevitable. The result will be something between a
-          single machine and traditional cluster.
+          single machine and traditional cluster. \pause
     \item The virtual machines or containers still need a hypervisor
-          underneath, which is an OS. Moreover, we've already observed that
-          application are increasingly parallel and distributed.
+          underneath, which is an OS\@. Moreover, we have already observed that
+          application are increasingly parallel and distributed. \pause
     \item Containers are important: They make it easy to deploy traditional
           applications in virtualized traditional OS environment. Their low
           overhead allows applications to be restructured into much more
@@ -435,17 +617,65 @@ Actually, nothing! The real problem is: The fundamental concept are outdated.
 %-------------------------------------------------------
   \begin{itemize}
     \item In most application scenarios, main memories will be very large and
-          mostly persistent, and only cold date will be kept on disk.
+          mostly persistent, and only cold date will be kept on disk. \pause
     \item Memory contents will persist across reboots, and files will be
-          partially replaced with persistent in-memory data structure.
+          partially replaced with persistent in-memory data structure. \pause
     \item A future OS is going to have to provide something like sophisticated
           transactional facility to make persistent main memory usable.
-          Sometimes remembering all the data isn't desirable across reboot.
+          Sometimes remembering all the data is not desirable across reboot. \pause
     \item Instead of a virtual address space, applications will be given a much
           more explicit handle on the region of physical memory allocated to
           them, and more freedom in safely programming the MMU to exploit
           hardware translation feature from application runtime
   \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Network}
+%-------------------------------------------------------
+\begin{frame}{Network}{Outlook}
+%-------------------------------------------------------
+  \begin{block}{}
+    OS software will increasingly get off the critical data path between
+    application threads, replaced by sophisticated user-safe hardware
+    multiplexing/de-multiplexing and filtering functionality, and library
+    code to interface.
+  \end{block}
+
+  \begin{block}
+    OS abstraction for this will resemble a more advanced form of those being
+    formulated for SDN.
+  \end{block}
+
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Security}
+%-------------------------------------------------------
+\begin{frame}{Security}{Outlook}
+%-------------------------------------------------------
+  \begin{block}{}
+    Low-level primitives that will scale up to very large numbers of principals
+    seem like a good place to start;
+  \end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\subsection{Applications}
+%-------------------------------------------------------
+\begin{frame}{Applications}{Outlook}
+%-------------------------------------------------------
+  \begin{block}{}
+    The OS interface will have to change, but it is unreasonable to expect
+    application developers to start afresh.
+  \end{block}
+\end{frame}
+
+%-------------------------------------------------------
+\section{Conclusion}
+%-------------------------------------------------------
+\begin{frame}{Conclusion}{}
+%-------------------------------------------------------
 \end{frame}
 
 {\1
