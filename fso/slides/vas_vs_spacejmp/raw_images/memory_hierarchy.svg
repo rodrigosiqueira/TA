@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="memory_hierarchy.svg"
+   inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_cache.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4273">
+      <stop
+         style="stop-color:#004d61;stop-opacity:1"
+         offset="0"
+         id="stop4275" />
+      <stop
+         style="stop-color:#006a86;stop-opacity:1"
+         offset="1"
+         id="stop4277" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4265">
+      <stop
+         style="stop-color:#540000;stop-opacity:1"
+         offset="0"
+         id="stop4267" />
+      <stop
+         style="stop-color:#7f0000;stop-opacity:1"
+         offset="1"
+         id="stop4269" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4257">
+      <stop
+         style="stop-color:#b26400;stop-opacity:1"
+         offset="0"
+         id="stop4259" />
+      <stop
+         style="stop-color:#ff8f00;stop-opacity:1"
+         offset="1"
+         id="stop4261" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4241">
+      <stop
+         style="stop-color:#5cdeff;stop-opacity:1"
+         offset="0"
+         id="stop4243" />
+      <stop
+         style="stop-color:#0088aa;stop-opacity:1"
+         offset="1"
+         id="stop4245" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4233">
+      <stop
+         style="stop-color:#ff6767;stop-opacity:1"
+         offset="0"
+         id="stop4235" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="1"
+         id="stop4237" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4225">
+      <stop
+         style="stop-color:#ffcc00;stop-opacity:1;"
+         offset="0"
+         id="stop4227" />
+      <stop
+         style="stop-color:#ffffca;stop-opacity:1"
+         offset="1"
+         id="stop4229" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4225"
+       id="linearGradient4231"
+       x1="195"
+       y1="286.61426"
+       x2="177.5"
+       y2="337.86719"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4233"
+       id="linearGradient4239"
+       x1="177.5"
+       y1="414.86719"
+       x2="242.00977"
+       y2="340.06641"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4241"
+       id="linearGradient4247"
+       x1="177.5"
+       y1="516.86719"
+       x2="278.13477"
+       y2="399.81836"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4257"
+       id="linearGradient4263"
+       x1="128.4707"
+       y1="314.45703"
+       x2="177.85355"
+       y2="256.62289"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4265"
+       id="linearGradient4271"
+       x1="100.83294"
+       y1="373.85544"
+       x2="169.72183"
+       y2="371.10284"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4273"
+       id="linearGradient4279"
+       x1="53.686531"
+       y1="451.24002"
+       x2="170.78249"
+       y2="452.68591"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2"
+     inkscape:cx="110.41811"
+     inkscape:cy="662.81683"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:object-nodes="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="1007"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.12999998;fill:none;fill-opacity:1;stroke:none;stroke-width:3.5999999;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4422"
+       width="351.43207"
+       height="351.43207"
+       x="5.6568537"
+       y="204.54117"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:#005369;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 177.5,447.86719 76.865234,399.81836 177.5,351.76953 278.13477,399.81836 Z"
+       id="path4221"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:#7f0000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 177.5,370.86719 112.99023,340.06641 177.5,309.26563 l 64.50977,30.80078 z"
+       id="path4223"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="opacity:0.22;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 177.5 309.26562 L 132.99023 330.51758 L 177.5 351.76953 L 222.00977 330.51758 L 177.5 309.26562 z "
+       id="path4293"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4263);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="m 177.5,233.36133 -49.0293,81.0957 49.0293,23.41016 0,-104.50586 z"
+       id="path4200"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4279);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 76.865234,399.81836 44.494141,453.36133 177.5,516.86719 l 0,-69 -100.634766,-48.04883 z"
+       id="path4138"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4231);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="m 177.5,233.36133 0,104.50586 49.0293,-23.41016 -49.0293,-81.0957 z"
+       id="path4207"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4247);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 278.13477,399.81836 177.5,447.86719 l 0,69 133.00586,-63.50586 -32.37109,-53.54297 z"
+       id="path4140"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="opacity:0.24;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 138.12695 370.56836 L 92.587891 392.31055 L 92.347656 392.70898 L 177.5 433.36719 L 262.65234 392.70898 L 262.41211 392.31055 L 216.87305 370.56836 L 177.5 389.36719 L 138.12695 370.56836 z "
+       id="path4304"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4271);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 112.99023,340.06641 92.347656,374.20898 177.5,414.86719 l 0,-44 -64.50977,-30.80078 z"
+       id="path4198"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:url(#linearGradient4239);fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:1;fill-opacity:1"
+       d="M 242.00977,340.06641 177.5,370.86719 l 0,44 85.15234,-40.65821 -20.64257,-34.14257 z"
+       id="path4205"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.2"
+       d="M 177.5 233.36133 L 177.5 337.86719 L 205.57227 324.46289 L 177.5 233.36133 z M 214.43555 353.23242 L 177.5 370.86719 L 177.5 414.86719 L 226.25391 391.58789 L 214.43555 353.23242 z M 235.11914 420.35742 L 177.5 447.86719 L 177.5 516.86719 L 253.65234 480.50586 L 235.11914 420.35742 z "
+       id="path4314"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.13"
+       d="M 177.5 233.36133 L 128.4707 314.45703 L 144.62109 322.16797 L 177.5 233.36133 z M 112.99023 340.06641 L 92.347656 374.20898 L 120.39453 387.60156 L 134.23828 350.21094 L 112.99023 340.06641 z M 76.865234 399.81836 L 44.494141 453.36133 L 88.302734 474.2793 L 110.01172 415.64453 L 76.865234 399.81836 z "
+       id="path4340"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <path
+       style="opacity:0.13;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.5999999;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 177.5 233.36133 L 172.68164 335.56641 L 177.5 337.86719 L 182.31836 335.56641 L 177.5 233.36133 z M 171.16016 367.83984 L 169.13086 410.87109 L 177.5 414.86719 L 185.86914 410.87109 L 183.83984 367.83984 L 177.5 370.86719 L 171.16016 367.83984 z M 167.60938 443.14453 L 164.42969 510.62695 L 177.5 516.86719 L 190.57031 510.62695 L 187.39062 443.14453 L 177.5 447.86719 L 167.60938 443.14453 z "
+       id="rect4360"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="330.65503"
+       y="333.88785"
+       id="text4378"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.81723657,0.43425547,-0.60073745,0.90442168,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380"
+         x="330.65503"
+         y="333.88785"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">Disk</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="22.637861"
+       y="489.18146"
+       id="text4378-5"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.83093317,-0.40743525,0.38045518,1.0169159,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380-3"
+         x="22.637861"
+         y="489.18146"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">Disk</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="324.64124"
+       y="257.33145"
+       id="text4378-56"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.81723657,0.43425547,-0.60073745,0.90442168,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380-2"
+         x="324.64124"
+         y="257.33145"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:30px;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">RAM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="51.23531"
+       y="411.74228"
+       id="text4378-5-9"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.83093317,-0.40743525,0.38045518,1.0169159,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380-3-1"
+         x="51.23531"
+         y="411.74228"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:30px;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">RAM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="305.841"
+       y="194.63365"
+       id="text4378-56-2"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.81723657,0.43425547,-0.60073745,0.90442168,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380-2-7"
+         x="305.841"
+         y="194.63365"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15px;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">CACHE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="61.247826"
+       y="348.21896"
+       id="text4378-5-9-0"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.83093317,-0.40743525,0.38045518,1.0169159,0,0)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_hierarchy_disk_ram_cache.png"
+       inkscape:export-xdpi="524.47998"
+       inkscape:export-ydpi="524.47998"><tspan
+         sodipodi:role="line"
+         id="tspan4380-3-1-9"
+         x="61.247826"
+         y="348.21896"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15px;font-family:Hack;-inkscape-font-specification:Hack;fill:#ffffff">CACHE</tspan></text>
+  </g>
+</svg>
