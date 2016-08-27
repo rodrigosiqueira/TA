@@ -192,8 +192,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
-     inkscape:cx="23.332775"
-     inkscape:cy="583.88892"
+     inkscape:cx="-11.667225"
+     inkscape:cy="503.88892"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -223,9 +223,9 @@
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect9662"
        width="1962.9285"
-       height="1038.0326"
+       height="1362.0326"
        x="-961.66522"
-       y="-42.239094"
+       y="39.760906"
        inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/mmu_a.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
@@ -820,39 +820,9 @@
         </g>
       </g>
     </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:34.77485657px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-890.54413"
-       y="197.12759"
-       id="text9664"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/mmu_a.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90"><tspan
-         sodipodi:role="line"
-         x="-890.54413"
-         y="197.12759"
-         id="tspan9683"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack">1110 0001 0101 0000 0000 0000 0000 0010</tspan><tspan
-         sodipodi:role="line"
-         x="-890.54413"
-         y="240.59616"
-         id="tspan9687"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack">1110 0001 1010 0000 0000 0000 0000 0111</tspan><tspan
-         sodipodi:role="line"
-         x="-890.54413"
-         y="284.06473"
-         id="tspan9689"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack">1110 0011 0010 0000 1111 0000 0000 0000</tspan><tspan
-         sodipodi:role="line"
-         x="-890.54413"
-         y="327.53329"
-         id="tspan9691"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack">1110 0001 0010 1111 1111 1111 0001 1110</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m -930.89567,325.99554 39.58788,73 366.35743,0 41.23045,65.05382 41.23045,-65.05382 366.357423,0 39.587881,-73"
+       d="m -840.75849,325.99554 31.60815,73 292.5108,0 32.91963,65.05382 32.91963,-65.05382 292.51079,0 31.60815,-73"
        id="path9693"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccc"
@@ -997,6 +967,54 @@
            x="134.64046"
            y="654.26343"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:121.88533783px;font-family:Pixeled;-inkscape-font-specification:Pixeled;stroke:#ffffff;stroke-width:5.108109;stroke-miterlimit:4;stroke-dasharray:none">MMU</tspan></text>
+    </g>
+    <g
+       id="layer1-6"
+       inkscape:label="Layer 1"
+       transform="translate(-616.65435,-57.41208)"
+       inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/mmu_a.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/mmu_a.png"
+         sodipodi:linespacing="125%"
+         id="text9664"
+         y="205.53215"
+         x="132.16183"
+         style="font-style:normal;font-weight:normal;font-size:34.77485657px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           id="tspan9683"
+           y="205.53215"
+           x="132.16183"
+           sodipodi:role="line">Program</tspan><tspan
+           id="tspan4147"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           y="249.00072"
+           x="132.16185"
+           sodipodi:role="line">11100001010100000000000000000010</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           id="tspan9687"
+           y="292.4693"
+           x="132.16185"
+           sodipodi:role="line">11100001101000000000000000000111</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           id="tspan9689"
+           y="335.93787"
+           x="132.16185"
+           sodipodi:role="line">11100011001000001111000000000000</tspan><tspan
+           id="tspan4907"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           y="379.40643"
+           x="132.16183"
+           sodipodi:role="line">...</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Hack;-inkscape-font-specification:Hack;text-align:center;text-anchor:middle"
+           id="tspan9691"
+           y="422.875"
+           x="132.16185"
+           sodipodi:role="line">11100001001011111111111100011110</tspan></text>
     </g>
   </g>
 </svg>

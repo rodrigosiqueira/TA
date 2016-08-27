@@ -42,7 +42,7 @@
 
 \title[] % [] is optional - is placed on the bottom of the sidebar on every slide
 { % is placed on the title page
-  \textbf{New memory management}
+      \textbf{New memory management}
 }
 
 \subtitle[SpaceJMP a new approach]
@@ -50,14 +50,14 @@
 }
 
 \author[Rodrigo Siqueira Jordão]
-{      Rodrigo Siqueira Jordão \\
+{      Rodrigo Siqueira Jordão\\
       {\ttfamily siqueira@kuniri.org}
 }
 
 \institute[]
 {
-  University of Sao Paulo\\
-  Institute of Mathematics and Statistics\\
+      University of Sao Paulo\\
+      Institute of Mathematics and Statistics\\
   
   %there must be an empty line above this line - otherwise some unwanted space
   % is added between the university and the country (I do not know why;( )
@@ -68,6 +68,7 @@
 %-------------------------------------------------------
 % THE BODY OF THE PRESENTATION
 %-------------------------------------------------------
+
 \begin{document}
 
 %-------------------------------------------------------
@@ -80,7 +81,7 @@
   \titlepage % call the title page information from above
 \end{frame}}
 
-\begin{frame}[shrink]{Content}{}
+\begin{frame}{Content}{}
   \tableofcontents
 \end{frame}
 
@@ -88,28 +89,27 @@
 \section{Context}
 %=======================================================
 \begin{frame}{Context}{Process-centric}
-  % TODO: Create a good image -> Idea: Some thing similar to solar system view
   \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/processor-centric.png}
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/cpu_centric.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Context}{Process-centric}
+\begin{frame}{Process-centric}{Memory hierarchy}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/memory_hierarchy_cache.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Context}{Process-centric}
+\begin{frame}{Process-centric}{Memory hierarchy}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/memory_hierarchy_ram_cache.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Context}{Process-centric}
+\begin{frame}{Process-centric}{Memory hierarchy}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/memory_hierarchy_disk_ram_cache.png}
@@ -117,8 +117,16 @@
 \end{frame}
 
 %=======================================================
-\section{Virtual Memory}
+\section{Virtual Memory - Overview}
 %=======================================================
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/concepts.png}
+  \end{figure}
+\end{frame}
+
+
 \begin{frame}{Virtual Memory}{Overview}
   \begin{figure}[ht]
     \centering
@@ -165,6 +173,59 @@
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_d.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_e.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_f.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_a.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_b.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_c.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Virtual Memory}{Overview}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_d.png}
+  \end{figure}
+\end{frame}
+
+%-------------------------------------------------------
+% Memory centric
+%-------------------------------------------------------
+\section{Memory Centric}
+\begin{frame}{Memory Centric}{}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/memory_centric.png}
   \end{figure}
 \end{frame}
 
