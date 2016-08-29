@@ -30,7 +30,7 @@
      inkscape:current-layer="svg4979"
      inkscape:document-units="px"
      inkscape:cy="682.76169"
-     inkscape:cx="326.24242"
+     inkscape:cx="280.24242"
      inkscape:zoom="1"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -320,7 +320,10 @@
      id="path12565"
      cx="398.43835"
      cy="407.56808"
-     r="306" />
+     r="306"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <path
      sodipodi:type="star"
      style="opacity:1;fill:#5252ad;fill-opacity:1;stroke:none;stroke-width:3.20000005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -336,11 +339,17 @@
      inkscape:rounded="0"
      inkscape:randomized="0"
      d="M 348,241.3708 334.92621,192.59457 289.99138,183.36218 338.76761,170.2884 348,125.35356 l 13.07379,48.77623 44.93483,9.23239 -48.77623,13.07379 z"
-     transform="matrix(0.32697422,0,0,0.30182792,504.21297,206.01838)" />
+     transform="matrix(0.32697422,0,0,0.30182792,504.21297,206.01838)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <g
      id="layer1-3"
      inkscape:label="Layer 1"
-     transform="matrix(-0.53675688,0.53675688,-0.5099629,-0.5099629,719.35404,314.24856)">
+     transform="matrix(-0.53675688,0.53675688,-0.5099629,-0.5099629,719.35404,314.24856)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352">
     <g
        id="g4304">
       <path
@@ -935,12 +944,18 @@
      id="path10456"
      style="fill:none;stroke:#000000;stroke-width:1"
      cx="548.38416"
-     cy="132.96046" />
+     cy="132.96046"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <path
      style="opacity:0.8;fill:#ff9955;stroke:none;stroke-width:0.99999994"
      d="m 124.88672,207.5332 c -75.479306,-0.13946 -59.712332,78.47259 35.08398,165.94532 94.52641,87.22366 247.72377,175.46128 372.50586,217.39453 L 534.875,572.39258 C 413.33382,533.00859 261.7835,445.66669 172.68164,360.43164 79.198729,271.00572 84.679145,205.07453 169.32422,214.23437 c -17.29124,-4.54648 -32.08634,-6.67835 -44.4375,-6.70117 z m 84.21484,19.93555 c -43.12131,0.44691 -66.87743,18.24661 -51.19531,56.66211 22.01823,50.12067 98.66285,114.39613 206.31445,176.54883 107.65161,62.15268 189.69644,91.49198 244.11133,85.5 54.41487,-5.992 69.87117,-46.06908 -0.57617,-111.91797 27.789,32.98849 38.2648,64.15469 26.13086,79.16992 -24.59816,30.43925 -140.0294,2.75842 -260.24219,-66.64648 -120.21274,-69.40484 -201.27888,-159.81955 -187.2168,-196.3418 12.05844,-31.31834 92.31165,-18.55582 174.10157,17.70703 l -0.17188,-0.99219 C 303.97947,241.12593 248.46935,227.06074 209.10156,227.46875 Z m 54.55664,21.39648 c -15.632,0.0144 -26.58732,3.82577 -31.22265,11.85547 -16.48055,28.54948 53.17371,99.62103 155.57812,158.74414 102.40434,59.12328 198.78134,83.91061 215.26563,55.36328 9.92487,-17.18808 -11.406,-49.79818 -52.2793,-85.92773 l 0,12.44336 c 21.95059,23.02013 33.4701,43.00564 27.56055,53.23828 -12.66567,21.93597 -100.5756,-9.23214 -179.26172,-54.66211 -78.6846,-45.42891 -143.02926,-103.93671 -130.36524,-125.87305 8.18789,-14.18602 46.58641,-9.58804 93.9668,7.70313 l -1.41992,-8.14453 C 321.93218,257.60085 287.39454,248.84335 263.6582,248.86523 Z m 407.85157,251.4668 c 44.22778,61.30783 19.32339,98.64221 -59.8086,89.93555 l -2.21289,17.07226 c 80.30452,4.28673 112.50638,-44.29282 62.02149,-107.00781 z"
      id="path11450"
-     inkscape:connector-curvature="0" />
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <path
      sodipodi:type="star"
      style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.20000005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -956,7 +971,10 @@
      inkscape:rounded="0"
      inkscape:randomized="0"
      d="M 348,241.3708 334.92621,192.59457 289.99138,183.36218 338.76761,170.2884 348,125.35356 l 13.07379,48.77623 44.93483,9.23239 -48.77623,13.07379 z"
-     transform="matrix(0.32697422,0,0,0.30182792,186.17168,96.51834)" />
+     transform="matrix(0.32697422,0,0,0.30182792,186.17168,96.51834)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <path
      sodipodi:type="star"
      style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.20000005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -972,7 +990,10 @@
      inkscape:rounded="0"
      inkscape:randomized="0"
      d="M 348,241.3708 334.92621,192.59457 289.99138,183.36218 338.76761,170.2884 348,125.35356 l 13.07379,48.77623 44.93483,9.23239 -48.77623,13.07379 z"
-     transform="matrix(0.32697422,0,0,0.30182792,141.21297,559.01838)" />
+     transform="matrix(0.32697422,0,0,0.30182792,141.21297,559.01838)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <path
      sodipodi:type="star"
      style="opacity:1;fill:#5252ad;fill-opacity:1;stroke:none;stroke-width:3.20000005;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -988,11 +1009,17 @@
      inkscape:rounded="0"
      inkscape:randomized="0"
      d="M 348,241.3708 334.92621,192.59457 289.99138,183.36218 338.76761,170.2884 348,125.35356 l 13.07379,48.77623 44.93483,9.23239 -48.77623,13.07379 z"
-     transform="matrix(0.32697422,0,0,0.30182792,312.21297,564.01838)" />
+     transform="matrix(0.32697422,0,0,0.30182792,312.21297,564.01838)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352" />
   <g
      id="layer1-0"
      inkscape:label="Layer 1"
-     transform="matrix(0.16275507,0.04361009,-0.04361009,0.16275507,537.81378,489.88115)">
+     transform="matrix(0.16275507,0.04361009,-0.04361009,0.16275507,537.81378,489.88115)"
+     inkscape:export-filename="/home/siqueira/Documents/Code/TA/fso/slides/vas_vs_spacejmp/images/memory_centric.png"
+     inkscape:export-xdpi="293.82352"
+     inkscape:export-ydpi="293.82352">
     <g
        id="g4905">
       <rect

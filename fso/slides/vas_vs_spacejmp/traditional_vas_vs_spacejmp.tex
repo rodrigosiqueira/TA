@@ -3,7 +3,7 @@
 %%% option passed to the outer theme
 %    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
   ]{Feather}
-  
+
 % If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
 
 % Change the bar colors:
@@ -27,6 +27,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{helvet}
 
+% Code syntax highlight
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{listings}
+
 %-------------------------------------------------------
 % DEFFINING AND REDEFINING COMMANDS
 %-------------------------------------------------------
@@ -34,6 +39,26 @@
 % colored hyperlinks
 \newcommand{\chref}[2]{
   \href{#1}{{\usebeamercolor[bg]{Feather}#2}}
+}
+
+%-------------------------------------------------------
+% Configure syntax highlight
+%-------------------------------------------------------
+\lstset{
+  backgroundcolor=\color{white},
+  breaklines=true,
+  commentstyle=\color{green},
+  extendedchars=true,
+  frame=single,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  language=Ruby,
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\small\color{gray},
+  rulecolor=\color{black},
+  stringstyle=\color{blue},
+  tabsize=2
 }
 
 %-------------------------------------------------------
@@ -58,7 +83,7 @@
 {
       University of Sao Paulo\\
       Institute of Mathematics and Statistics\\
-  
+
   %there must be an empty line above this line - otherwise some unwanted space
   % is added between the university and the country (I do not know why;( )
 }
@@ -77,7 +102,7 @@
 
 {\1% % this is the name of the PDF file for the background
 % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
-\begin{frame}[plain,noframenumbering] 
+\begin{frame}[plain,noframenumbering]
   \titlepage % call the title page information from above
 \end{frame}}
 
@@ -117,9 +142,9 @@
 \end{frame}
 
 %=======================================================
-\section{Virtual Memory - Overview}
+\section{Memory Management - Overview}
 %=======================================================
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.5\textwidth, keepaspectratio=true]{images/concepts.png}
@@ -127,91 +152,91 @@
 \end{frame}
 
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/virtual_memory_a.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/virtual_memory_b.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/virtual_memory_c.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_a.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_b.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_c.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_d.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_e.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/mmu_f.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_a.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_b.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_c.png}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Virtual Memory}{Overview}
+\begin{frame}{Memory Management}{Overview}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.9\textwidth, keepaspectratio=true]{images/tlb_d.png}
@@ -223,16 +248,226 @@
 %-------------------------------------------------------
 \section{Memory Centric}
 \begin{frame}{Memory Centric}{}
+"What every programmer would like is a private, infinitely large, infinitely
+fast memory that is also nonvolatile, that is, does not lose its contents when
+the electric power is switched off. While we are at it, why not make it
+inexpensive, too? Unfortunately, technology does not provide such memories at
+present."\\
+Tanenbaum
+\end{frame}
+
+\begin{frame}{Memory Centric}{}
   \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/memory_centric.png}
   \end{figure}
 \end{frame}
 
+%-------------------------------------------------------
+% Challenges
+%-------------------------------------------------------
+\section{NVM Challenges}
+\begin{frame}{NVM Challenges}{Addressing huge physical memory}
+  \textbf{Addressing more physical memory than the size of the virtual space}
 
+  \begin{columns}[T]
+    \begin{column}{.2\textwidth}
+      \includegraphics[width=1.8\textwidth, keepaspectratio=true]{images/increase_physical_address.png}
+    \end{column} \pause
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      Possible solution: Increase the number of virtual address (VA) bit in
+      processor \pause
+      \begin{itemize}
+        \item Longer TLB miss latency \pause
+        \item Implications on performance, power, production, and cost
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NVM Challenges}{Sharing data}
+  \textbf{Sharing data across simultaneously executing processes}
+
+  \begin{columns}[T]
+    \begin{column}{.2\textwidth}
+      \includegraphics[width=1.7\textwidth, keepaspectratio=true]{images/client_server.png}
+    \end{column} \pause
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      Possible solution: Client-server model \pause
+      \begin{itemize}
+        \item Rewritten to use specific interfaces \pause
+        \item Communication overhead \pause
+      \end{itemize}
+      Possible solution: Shared memory regions \pause
+      \begin{itemize}
+        \item Current OS mechanisms has limitations
+      \end{itemize}
+    \end{column}
+
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NVM Challenges}{Pointer-based Data Structures}
+  \textbf{Maintaining Pointer-based Data Structures}
+
+  \begin{columns}[T]
+    \begin{column}{.2\textwidth}
+      % TODO: CREATE CLIENT-SERVER IMAGE
+      \includegraphics[width=1.7\textwidth, keepaspectratio=true]{images/increase_physical_address.png}
+    \end{column} \pause
+
+    \hfill
+    \begin{column}{.7\textwidth}
+      Possible solution: Special pointers \pause
+      \begin{itemize}
+        \item Awkward programming techniques
+      \end{itemize}
+    \end{column}
+
+  \end{columns}
+\end{frame}
+
+%-------------------------------------------------------
+% SpaceJMP
+%-------------------------------------------------------
+\section{SpaceJMP}
+
+\begin{frame}{What is SpaceJMP?}{SpaceJMP}
+  \begin{itemize}
+    \item A set of API \pause
+    \item OS mechanism \pause
+    \item Compiler techniques
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{SpaceJMP and NVM challeges}{Addressing huge physical memory}
+  \textbf{Addressing more physical memory than the size of the virtual space}
+  \pause
+  \begin{itemize}
+    \item Decoupling Virtual Address Space \pause
+    \item Process can create different Addresses Spaces
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{SpaceJMP and NVM challeges}{Sharing data}
+  \textbf{Sharing data across simultaneously executing processes}
+  \pause
+  \begin{itemize}
+    \item Allowing processes to switch into a shared address space
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{SpaceJMP and NVM challeges}{Pointer-based Data Structures}
+  \textbf{Maintaining Pointer-based Data Structures} \pause
+  \begin{itemize}
+    \item Can always guarantee the availability of Virtual Address location
+  \end{itemize}
+\end{frame}
+
+%-------------------------------------------------------
+% Design
+%-------------------------------------------------------
+\section{Design}
+
+\begin{frame}{Design}{Two elements}
+  \begin{itemize}
+    \item Lockable Segment
+    \item Multiple Virtual Address Space
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Design}{Lockable Segment}
+  What is Lockable Segment in SpaceJMP? \pause
+  \begin{itemize}
+    \item Single, contiguous area of virtual memory containing code and data \pause
+    \item It has a fixed virtual start address and size \pause
+    \item It has a metadata describing how to access content in memory \pause
+    \item Mapping from virtual address to physical frame \pause
+    \item Associated access rights
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Design}{Lockable Segment}
+  \begin{block}{Important feature}
+    All segments are lockable. In order to switch into an address space, the OS
+    must acquire a reader/writer lock on each lockable segment in that address
+    space.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Design}{Lockable Segment}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/lockable_segment_a.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Design}{Lockable Segment}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/lockable_segment_b.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Design}{Lockable Segment}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/lockable_segment_c.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Design}{Multiple Virtual Address Space}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/traditional_vs_new_a.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Design}{Multiple Virtual Address Space}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth, keepaspectratio=true]{images/traditional_vs_new_b.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Design}{SpaceJMP interface}
+  \textbf{VAS API - for applications}
+\begin{lstlisting}
+vas_find(name) -> vid
+vas_detach(vh)
+vas_create(name, perms) -> vid
+vas_clone(vid) -> vid
+vas_attach(vid) -> vh
+vas_switch(vh)
+vas_ctl(cmd, vid[,arg])
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Design}{SpaceJMP interface}
+  \textbf{Segment API - for library developers}
+\begin{lstlisting}
+seg_find(name) -> sid
+seg_attach(vh, sid)
+seg_detach(vh, sid)
+seg_ctl(sid, cmd[,arg])
+seg_attach(vid, sid)
+seg_detach(vid, sid)
+seg_clone(sid) -> sid
+seg_alloc(name, base, size, perms) -> sid
+\end{lstlisting}
+\end{frame}
+
+%-------------------------------------------------------
+% End
+%-------------------------------------------------------
 {\1
 \begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you!}
+  \finalpage{New memory management \\ Rodrigo Siqueira \\ siqueira@kuniri.org}
+
 \end{frame}}
 
 \end{document}
