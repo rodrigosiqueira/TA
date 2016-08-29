@@ -461,6 +461,137 @@ seg_alloc(name, base, size, perms) -> sid
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]{Design}{SpaceJMP interface}
+  \textbf{Example use of segment API}
+\begin{lstlisting}
+va = 0xC0DE;
+sz = (1UL << 35);
+vid = vas_create("v0", 660);
+sid = seg_alloc("s0", va, sz, 660);
+seg_attach(vid, sid);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Design}{SpaceJMP interface}
+  \textbf{Example use of API}
+\begin{lstlisting}
+vid = vas_find("v0");
+vh = vas_attach(vid);
+vas_switch(vh);
+t = malloc(...);
+*t = 42;
+\end{lstlisting}
+\end{frame}
+
+%-------------------------------------------------------
+% Example
+%-------------------------------------------------------
+\section{Example}
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_a.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_b.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_c.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_d.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_e.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_f.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_g.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_f.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_h.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_i.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_j.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_k.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_l.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_m.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Example}{Example}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth, keepaspectratio=true]{images/spacejmp_example_n.png}
+  \end{figure}
+\end{frame}
+
 %-------------------------------------------------------
 % End
 %-------------------------------------------------------
