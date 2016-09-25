@@ -277,18 +277,17 @@ Tanenbaum
 
     \hfill
     \begin{column}{.7\textwidth}
-      Possible solution: Increase the number of virtual address (VA) bit in
-      processor \pause
+      Possible solution: Increase the number of virtual address (VA) bits \pause
       \begin{itemize}
-        \item Longer TLB miss latency \pause
-        \item Implications on performance, power, production, and cost
+        \item Increase cache miss in the TLB\pause
+        \item Impacts performance, power, production, and cost
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
 \begin{frame}{NVM Challenges}{Sharing data}
-  \textbf{Sharing data across simultaneously executing processes}
+  \textbf{Sharing data across parallel processes}
 
   \begin{columns}[T]
     \begin{column}{.2\textwidth}
@@ -299,12 +298,12 @@ Tanenbaum
     \begin{column}{.7\textwidth}
       Possible solution: Client-server model \pause
       \begin{itemize}
-        \item Rewritten to use specific interfaces \pause
+        \item Modify applications to use client-server interfaces \pause
         \item Communication overhead \pause
       \end{itemize}
-      Possible solution: Shared memory regions \pause
+      Alternative solution: Shared memory regions \pause
       \begin{itemize}
-        \item Current OS mechanisms has limitations
+        \item Current OSs have limitations
       \end{itemize}
     \end{column}
 
@@ -338,9 +337,9 @@ Tanenbaum
 
 \begin{frame}{What is SpaceJMP?}{SpaceJMP}
   \begin{itemize}
-    \item A set of API \pause
-    \item OS mechanism \pause
-    \item Compiler techniques
+    \item A set of APIs \pause
+    \item OS memory management strategies \pause
+    \item Extra memory protection and checkings in the compiler
   \end{itemize}
 \end{frame}
 
@@ -349,7 +348,7 @@ Tanenbaum
   \pause
   \begin{itemize}
     \item Decoupling Virtual Address Space \pause
-    \item Process can create different Addresses Spaces
+    \item Process can create different Address Spaces
   \end{itemize}
 \end{frame}
 
@@ -364,7 +363,7 @@ Tanenbaum
 \begin{frame}{SpaceJMP and NVM challeges}{Pointer-based Data Structures}
   \textbf{Maintaining Pointer-based Data Structures} \pause
   \begin{itemize}
-    \item Can always guarantee the availability of Virtual Address location
+    \item Can always guarantee the availability of Virtual Address
   \end{itemize}
 \end{frame}
 
@@ -381,11 +380,11 @@ Tanenbaum
 \end{frame}
 
 \begin{frame}{Design}{Lockable Segment}
-  What is Lockable Segment in SpaceJMP? \pause
+  What is a Lockable Segment in SpaceJMP? \pause
   \begin{itemize}
     \item Single, contiguous area of virtual memory containing code and data \pause
-    \item It has a fixed virtual start address and size \pause
-    \item It has a metadata describing how to access content in memory \pause
+    \item Fixed virtual start address and size \pause
+    \item Metadata describing how to access content in memory \pause
     \item Mapping from virtual address to physical frame \pause
     \item Associated access rights
   \end{itemize}
@@ -462,7 +461,7 @@ seg_alloc(name, base, size, perms) -> sid
 \end{frame}
 
 \begin{frame}[fragile]{Design}{SpaceJMP interface}
-  \textbf{Example use of segment API}
+  \textbf{Example: Using segment API}
 \begin{lstlisting}
 va = 0xC0DE;
 sz = (1UL << 35);
@@ -473,7 +472,7 @@ seg_attach(vid, sid);
 \end{frame}
 
 \begin{frame}[fragile]{Design}{SpaceJMP interface}
-  \textbf{Example use of API}
+  \textbf{Example: Using API}
 \begin{lstlisting}
 vid = vas_find("v0");
 vh = vas_attach(vid);
