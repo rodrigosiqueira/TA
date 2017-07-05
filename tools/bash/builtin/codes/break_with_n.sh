@@ -5,15 +5,13 @@ do
   for innerloop in 1 2 3 4 5
   do
     echo -n "$innerloop"
-
     if [ "$innerloop" -eq 3 ]
     then
-      break 3
+      break 2
     fi
   done
   echo
 done
 
 echo
-
 exit 0

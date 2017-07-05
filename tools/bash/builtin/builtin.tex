@@ -24,12 +24,14 @@
   extendedchars=true,
   frame=n,
   keywordstyle=\color{orange},
-  language=C++,
+  language=bash,
   rulecolor=\color{black},
   showspaces=false,
   showstringspaces=false,
   showtabs=false,
-  stepnumber=2,
+  numbers=left,
+  numbersep=3pt,
+  stepnumber=1,
   stringstyle=\color{gray},
   tabsize=2,
   keywords={thrust,plus,device_vector, copy,transform,begin,end, copyin,
@@ -47,7 +49,7 @@
 
 \title{Builtin commands}
 \author{\footnotesize Rodrigo Siqueira \\ {\scriptsize siqueira@ime.usp.br}}
-\institute{\includegraphics[height=2cm]{imelogo}\\[0.2cm] Department of Computer Science \\ University of São Paulo}
+%\institute{\includegraphics[height=2cm]{imelogo}\\[0.2cm] Department of Computer Science \\ University of São Paulo}
 
 \begin{document}
 
@@ -64,34 +66,98 @@
 
 %------------------------------------------------------------------------------
 \section{Bourne Shell Builtin}
-\begin{frame}{Colon (:)}
-\end{frame}
-
-\begin{frame}{Dot (.)}
-\end{frame}
-
-\begin{frame}{break}
+\begin{frame}{Colon (\texttt{:})}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    break [n]
+    \texttt{:} (a colon)
   \end{alertblock}
 
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \textbf{Do nothing! Just it! :)}
+      \item You can use it as \textbf{true}
+      \item Special built-in
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Period (.)}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{. filename [arguments]} (a period)
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \textbf{Read and execute commands from the \texttt{filename}}
+      \item It uses \texttt{PATH} to find the file
+      \item You can do some useful things with it :)
+    \end{itemize}
+  \end{exampleblock}
+
+  Using \texttt{.} to include another script
+
+  \lstinputlisting{codes/include_example.sh}
+\end{frame}
+
+\begin{frame}{\texttt{break}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{break [n]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Exit from: \texttt{for}, \texttt{while},
+            \texttt{until}, and \texttt{select}
+      \item \texttt{n} must be greater than or equal to 1
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{break}}
+  Example:
   \lstinputlisting{codes/break_with_n.sh}
 \end{frame}
 
-\begin{frame}{cd}
+\begin{frame}{\texttt{continue}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    cd [-L|[-P[-e]] [-@] [dir]
+    \texttt{continue [n]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \textbf{Resume} the next iteration
+      \item \texttt{n} must be greater than or equal to 1
+      \item \textbf{Return}: Return status is zero unless \texttt{n} is not
+            greater than or equal to 1
+    \end{itemize}
+  \end{exampleblock}
 \end{frame}
 
-\begin{frame}{continue}
+\begin{frame}{\texttt{continue}}
+  Example:
+  \lstinputlisting{codes/continue_with_n.sh}
+\end{frame}
+
+\begin{frame}{\texttt{cd}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    continue [n]
+    \texttt{cd [-L|[-P[-e]] [-@] [diretory]}
   \end{alertblock}
-  \lstinputlisting{codes/continue_with_n.sh}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item In a few words: \textbf{C}hange \textbf{D}irectory :)
+      \item Some cool stuffs with \texttt{cd}:
+        \begin{enumerate}
+          \item Go to \texttt{\$HOME}: \texttt{cd}
+          \item Go to last directory (\texttt{\$OLDPWD}): \texttt{cd -}
+          \item Go to upper directory: \texttt{cd ..}
+        \end{enumerate}
+    \end{itemize}
+  \end{exampleblock}
 \end{frame}
 
 \begin{frame}{eval}
