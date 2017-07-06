@@ -46,4 +46,4 @@ ctan: $(CTAN_CONTENT)
 	@rm -rf mtheme
 
 clean:
-	rm -rf scheduler.pdf
+	rm -rf $(PRES_PDF)

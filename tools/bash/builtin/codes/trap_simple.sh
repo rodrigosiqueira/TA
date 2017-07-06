@@ -1,4 +1,4 @@
-trap "echo KABOOOOOMMMMMMM" SIGINT SIGTERM
+trap "echo KABOOOOOMMMMMMM" SIGINT
 echo "pid is $$"
 
 while :

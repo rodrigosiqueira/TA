@@ -100,6 +100,18 @@
   \lstinputlisting{codes/include_example.sh}
 \end{frame}
 
+\begin{frame}{\texttt{exit} and \texttt{return}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{exit [n]}
+  \end{alertblock}
+
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{return [n]}
+  \end{alertblock}
+\end{frame}
+
 \begin{frame}{\texttt{break}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
@@ -160,215 +172,324 @@
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}{eval}
+\begin{frame}{\texttt{eval}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    eval [arguments]
+    \texttt{eval [arguments]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Concatenate arguments into a single command
+    \end{itemize}
+  \end{exampleblock}
+
   \lstinputlisting{codes/eval_example.sh}
 \end{frame}
 
-\begin{frame}{exec}
+\begin{frame}{\texttt{exec}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    exec [-cl] [-a name] [command] [arg]
+    \texttt{exec [-cl] [-a name] [command] [arguments]}
   \end{alertblock}
   \lstinputlisting{codes/exec_input.sh}
 \end{frame}
 
-\begin{frame}{exit}
+\begin{frame}{\texttt{export}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    exit [n]
+    \texttt{export [-fn] [-p] [name[=value]]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Mark name to e passed to child processes in the environment
+    \end{itemize}
+  \end{exampleblock}
+
 \end{frame}
 
-\begin{frame}{export}
+\begin{frame}{\texttt{getopts}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    export [-fn] [-p] [name[=value]]
+    \texttt{getopts "options" name [arguments]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item If \texttt{options} has ':' than a value is expected
+      \item \texttt{\$OPTARG} has the value parsed from ':'
+      \item \texttt{?} is set to \texttt{\$OPTARG} if option is unknown
+    \end{itemize}
+  \end{exampleblock}
 \end{frame}
 
-\begin{frame}{getopts}
+\begin{frame}{\texttt{getopts}}
+  Example:
   \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    getopts "options" name [arg]
-  \end{alertblock}
   \lstinputlisting{codes/getopts_simple.sh}
 \end{frame}
 
-\begin{frame}{hash}
+\begin{frame}{\texttt{hash}, \texttt{readonly}, \texttt{pwd}, and \texttt{time}}
+
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    hash [-r] [-p file] [-dt] [name]
+    \texttt{hash [-r] [-p file] [-dt] [name]}
+  \end{alertblock}
+
+  \begin{alertblock}{Syntax}
+    \texttt{readonly [-aAf] [-p] [name[=value]] ...}
+  \end{alertblock}
+
+  \begin{alertblock}{Syntax}
+    \texttt{pwd [-LP]}
+  \end{alertblock}
+
+  \begin{alertblock}{Syntax}
+    \texttt{time}
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{pwd}
+\begin{frame}{\texttt{shift}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    pwd [-LP]
+    \texttt{shift [n]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Shift on \textit{Positional Parameters}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{test}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{test expression}
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{readonly}
+\begin{frame}{\texttt{trap}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    readonly [-aAf] [-p] [name[=value]] ...
+    \texttt{trap [-lp] [arguments] [sigspec...]}
   \end{alertblock}
-\end{frame}
 
-\begin{frame}{return}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    return [n]
-  \end{alertblock}
-\end{frame}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Execute \texttt{arguments} if \texttt{sigspec} is received
+      \item Useful: \texttt{trap -l}
+      \item Two important \texttt{sigspec}: \texttt{EXIT} and \texttt{ERR}
+    \end{itemize}
+  \end{exampleblock}
 
-\begin{frame}{shift}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    shift [n]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{test}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    test expression
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{time}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    time
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{trap}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    trap [-lp] [arg] [sigspec...]
-  \end{alertblock}
   \lstinputlisting{codes/trap_simple.sh}
 \end{frame}
 
 %------------------------------------------------------------------------------
 \section{Bash builtin}
-\begin{frame}{alias}
+\begin{frame}{\texttt{alias} and \texttt{unalias}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    alias [-p] [name[=value]...]
+    \texttt{alias [-p] [name[=value]...]}
   \end{alertblock}
+
+  \begin{alertblock}{Syntax}
+    \texttt{unalias [-a] [name ...]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Create and remove an alias
+      \item Useful: \texttt{alias -p}
+    \end{itemize}
+  \end{exampleblock}
+  Example: \\
+  \texttt{alias ls='ls --color=auto'} \\
+  \texttt{unalias ls} \\
 \end{frame}
 
-\begin{frame}{bind}
+\begin{frame}{\texttt{bind}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    bind [-m keymap] [-lpsvPSVX]
+    \texttt{bind [-m keymap] [-lpsvPSVX]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Allow bind a key to a command
+    \end{itemize}
+  \end{exampleblock}
+  Example: \\
+  \texttt{bind '"\textbackslash{e}[24\textasciitilde":"pwd\textbackslash{n}"'}
 \end{frame}
 
-\begin{frame}{builtin}
+\begin{frame}{\texttt{builtin} and \texttt{command}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    builtin [shell-builtin [args]]
+    \texttt{builtin [shell-builtin [arguments]]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    If you have a function with the same name of a build in, your
+    function will be called first. If you want to explicit call the build in,
+    use \texttt{buildin} command
+  \end{exampleblock}
+
+  \begin{alertblock}{Syntax}
+    \texttt{command [-pVv] command [arguments ...]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Basically, runs \texttt{command}
+      \item Only executes command found in the \texttt{PATH} or buildin
+    \end{itemize}
+  \end{exampleblock}
 \end{frame}
 
-\begin{frame}{caller}
+\begin{frame}{\texttt{caller}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    caller [expression]
+    \texttt{caller [expression]}
   \end{alertblock}
+
+  \begin{exampleblock}{About}
+    Prints the execution frame (it is related to stack frame concept)
+  \end{exampleblock}
+
   \lstinputlisting{codes/caller_test.sh}
 \end{frame}
 
-\begin{frame}{command}
+\begin{frame}{\texttt{declare}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    command [-pVv] command [arguments ...]
+    \texttt{declare [-aAfFgilnrtux] [-p] [name[=value]...]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    Set attributes to variables
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{declare}}
+  \metroset{block=fill}
+  \lstinputlisting{codes/declare_ref.sh}
+\end{frame}
+
+\begin{frame}{\texttt{echo}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{echo [-neE] [arguments...]}
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{declare}
+\begin{frame}{\texttt{enable}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    declare [-aAfFgilnrtux] [-p] [name[=value]...]
+    \texttt{enable [-a] [-dnps] [-f filename] [name...]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    Enables and disable buildin commands
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{help}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{help [-dms] [pattern]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    This help refers to buildin commands
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{let}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{let expression [expression...]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    Arithmetic to be performed on shell variable
+  \end{exampleblock}
+
+  Example: \\
+  \texttt{let "a = 3 + 20"}
+\end{frame}
+
+\begin{frame}{\texttt{local}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{local [option] name[=value]}
+  \end{alertblock}
+
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Make variable available only inside function
+      \item Only used inside function
+      \item Accepts the same parameters of declare
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{logout}}
+%TODO
+\end{frame}
+
+\begin{frame}{\texttt{mapfile}}
+%TODO
+\end{frame}
+
+\begin{frame}{\texttt{printf}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{printf [-v var] format [args]}
+  \end{alertblock}
+  Examples: \\
+  \texttt{printf "\%x\textbackslash{n}" 15} \\
+  \texttt{printf -v new "\%x\textbackslash{n}" 15}
+\end{frame}
+
+\begin{frame}{\texttt{read}}
+%TODO
+\end{frame}
+
+\begin{frame}{\texttt{readarray}}
+\end{frame}
+
+\begin{frame}{\texttt{source}}
+\end{frame}
+
+\begin{frame}{\texttt{type}}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{type [-afptP] [name]}
   \end{alertblock}
 \end{frame}
 
-\begin{frame}{echo}
+\begin{frame}{\texttt{typeset}}
+% TODO
+\end{frame}
+
+\begin{frame}{\texttt{ulimit}}
   \metroset{block=fill}
   \begin{alertblock}{Syntax}
-    echo [-neE] [args...]
+    \texttt{ulimit [-HSabcdefiklmnpqrstuvxPT] [limit]}
   \end{alertblock}
-\end{frame}
 
-\begin{frame}{enable}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    enable [-a] [-dnps] [-f filename] [name...]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{help}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    help [-dms] [pattern]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{let}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    let expression [expression...]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{local}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    local [option] name[=value]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{logout}
-\end{frame}
-
-\begin{frame}{mapfile}
-\end{frame}
-
-\begin{frame}{printf}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    printf [-v var] format [args]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{read}
-
-\end{frame}
-
-\begin{frame}{readarray}
-\end{frame}
-
-\begin{frame}{source}
-\end{frame}
-
-\begin{frame}{type}
-  \metroset{block=fill}
-  \begin{alertblock}{Syntax}
-    type [-afptP] [name]
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{typeset}
-\end{frame}
-
-\begin{frame}{ulimit}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Provides control over the resources available to processes
+      \item See total of soft limit assotiated with a resource:
+            \texttt{ulimit -S}
+      \item \textbf{hard-limit}: Only root can change the limit
+      \item \textbf{soft-limit}: User can change the limit
+    \end{itemize}
+  \end{exampleblock}
 \end{frame}
 
 %------------------------------------------------------------------------------
@@ -383,6 +504,7 @@
 % continue [n]: http://tldp.org/LDP/abs/html/loopcontrol.html
 % exec: http://wiki.bash-hackers.org/commands/builtin/exec
 % caller: http://wiki.bash-hackers.org/commands/builtin/caller
+% key num code: http://invisible-island.net/xterm/xterm-function-keys.html
 \maketitle
 
 \end{document}

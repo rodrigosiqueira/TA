@@ -133,3 +133,5 @@ sympy-plots-for-*.tex/
 *.o
 *.bin
 *.ghc
+
+.temptex/
