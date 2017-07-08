@@ -1,0 +1,225 @@
+\documentclass[10pt, compress, aspectratio=169]{beamer}
+
+\usetheme[numbering=fraction, progressbar=none, titleformat=smallcaps]{metropolis}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[scale=2]{ccicons}
+\usepackage{url}
+\usepackage{relsize}
+\usepackage{wasysym}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\lstset{ %
+  backgroundcolor={},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=true,
+  breaklines=true,
+  captionpos=n,
+  commentstyle=\color{orange},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  frame=n,
+  keywordstyle=\color{orange},
+  language=bash,
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  numbers=left,
+  numbersep=3pt,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=2,
+  keywords={thrust,plus,device_vector, copy,transform,begin,end, copyin,
+  copyout, acc, \_\_global\_\_, void, int, float, main, threadIdx, blockIdx,
+  blockDim, if, else, malloc, NULL, cudaMalloc, cudaMemcpy, cudaSuccess,
+  cudaGetLastError, cudaDeviceSynchronize, cudaFree, cudaMemcpyDeviceToHost,
+  cudaMemcpyHostToDevice, const, data, independent, kernels, loop,
+  fprintf, stderr, cudaGetErrorString, EXIT_FAILURE, for, dim3},
+  otherkeywords={::, \#pragma, \#include, <<<,>>>, \&, \*, +, -, /, [, ], >, <}
+}
+
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+\graphicspath{{images/}}
+
+\title{Shell Variables}
+\author{\footnotesize Rodrigo Siqueira \\ {\scriptsize siqueira@ime.usp.br}}
+%\institute{\includegraphics[height=2cm]{imelogo}\\[0.2cm] Department of Computer Science \\ University of São Paulo}
+
+\begin{document}
+
+\maketitle
+
+%------------------------------------------------------------------------------
+\section{Introduction}
+\begin{frame}{Overview}
+  \metroset{block=fill}
+  \begin{itemize}
+    \item Shell Variable
+    \item Environment Variable
+    \item Why you should know about it?
+  \end{itemize}
+  \begin{alertblock}{Alert}
+    There is a large number of Shell Variables, and some of them are extremely
+    specific. For this part It is present just a few of them which can be
+    useful in daily routines.
+  \end{alertblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Bourne Shell Variables}
+\begin{frame}{\texttt{CDPATH}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item It directly affect the \texttt{cd} command
+      \item Paths are separated by \textbf{":"}
+      \item Take care with it
+    \end{itemize}
+  \end{exampleblock}
+  Example: \\
+  \texttt{export CDPATH="/home/youruser/"}\\
+  \texttt{cd /tmp}\\
+  \texttt{cd Downloads}
+\end{frame}
+
+\begin{frame}{\texttt{HOME}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Keep user home path
+      \item It is expand by \texttt{~}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{IFS}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item It is a list of separating characters which is expanded by Bash
+      \item It affects the \texttt{\$*} expansion
+    \end{itemize}
+  \end{exampleblock}
+  If you want to see the values inside \texttt{\$IFS}, just try: \\
+  \texttt{echo "\$IFS" | cat -ETv}
+\end{frame}
+
+\begin{frame}{\texttt{OPTARG} and \texttt{OPTIND}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Both variables are used by \texttt{getopts} builtin
+      \item \texttt{OPTARG}: The value captured from \texttt{getopts}
+      \item \texttt{OPTIND}: The index captured from \texttt{getopts}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Bash Variables}
+
+\begin{frame}{\texttt{BASH}, \texttt{SHELL}, and \texttt{BASH\_COMMAND}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \texttt{BASH}: Path of the current Bash running
+      \item \texttt{SHELL}: Path of the default Shell
+      \item \texttt{BASH\_COMMAND}: It has the current command or about to be
+            executed
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{EUID}, \texttt{UID}, \texttt{GROUPS}, and \texttt{HOSTNAME}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \texttt{EUID}: Shows the \textit{effective} id from the current user
+      \item \texttt{UID}: Shows the \textit{real} id from the current user
+      \item \texttt{GROUPS}: Shows a list of id groups wherein the current user
+            belongs
+      \item \texttt{HOSTNAME}: Shows the machine hostname
+    \end{itemize}
+  \end{exampleblock}
+
+  \begin{exampleblock}{Real vs Effective user id}
+    \begin{itemize}
+      \item \textbf{real}: Who you really are
+      \item \textbf{effective}: What the OS looks to make a decision
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{FUNCNAME} and \texttt{LINENO}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \texttt{FUNCNAME}: Only works inside function, and retrieves
+            function names current in the stack.
+      \item \texttt{LINENO}: Shows current line executed by the Shell
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{FUNCNAME} and \texttt{LINENO}}
+  \metroset{block=fill}
+  \lstinputlisting{codes/funcname_lineno.sh}
+\end{frame}
+
+\begin{frame}{\texttt{HISTFILE}, and \texttt{HISTFILESIZE}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \texttt{HISTFILE}: Path to the history file
+      \item \texttt{HISTFILESIZE}: Maximum number accepted n the history file
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{SECONDS}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Expands to the number of seconds since the shell was started
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{SECONDS}}
+  \metroset{block=fill}
+  \lstinputlisting{codes/seconds_example.sh}
+\end{frame}
+
+\begin{frame}{\texttt{RANDOM}}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Each time this variable is referred, it produces a random number
+      \item Write a value to this variable change the seed
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{\texttt{RANDOM}}
+  \metroset{block=fill}
+  \lstinputlisting{codes/random_example.sh}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{About this presentation}
+\begin{frame}[standout]
+  % TODO: Improve it
+   \begin{center}\ccbysa\end{center}
+\end{frame}
+
+%TODO: Bibliography
+% Real vs Effective id: https://en.wikipedia.org/wiki/User_identifier#Saved_user_ID
+\maketitle
+
+\end{document}
