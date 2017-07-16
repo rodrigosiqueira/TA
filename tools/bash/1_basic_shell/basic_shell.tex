@@ -305,6 +305,82 @@
   \end{exampleblock}
 \end{frame}
 
+\begin{frame}{Shell Functions}
+  \metroset{block=fill}
+  \begin{alertblock}{Syntax}
+    \texttt{name () compound-command [ redirections ]} \\
+    \texttt{function name [()] compound-command [ reirections ]}
+  \end{alertblock}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item Shell functions are a way to group commands for later execution
+      \item Shell functions are executed in the current shell context
+      \item Attetion to the syntax
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Shell Functions}
+  \metroset{block=fill}
+  \begin{exampleblock}{Details about functions}
+    \begin{itemize}
+      \item Pass arguments to function: Positional parameters and \texttt{\$@}
+            or \texttt{\$*}
+      \item Return only a value between 0 and 255 which is the status code
+      \item It is possible to create a local variable with \texttt{local}
+      \item \texttt{FUNCNAME} gets the current function name
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Shell Functions}
+  \metroset{block=fill}
+  \lstinputlisting{codes/function_two.sh}
+\end{frame}
+
+\begin{frame}{Shell Parameters}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \textbf{Parameters} are entities that stores values
+      \item A variable is a parameter with name
+      \item It is possible to add attributes to the parameters
+      \item \texttt{name=[value]}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Positional Parameters}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \textbf{Positional Parameters} are a parameters denoted by one or
+            more digits
+      \item Examples: \texttt{\$1, \$2, \$3, \$4}
+      \item How to operate on them: \texttt{shift}, \texttt{\$@} or \texttt{\$*}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Special Parameters}
+  \metroset{block=fill}
+  \begin{exampleblock}{About}
+    \begin{itemize}
+      \item \texttt{*}: Expands to the positional parameters, starting from one
+						(\texttt{IFS})
+      \item \texttt{@}: Expands to the positional parameters, starting from one
+      \item \texttt{\#}: Number of positional parameters
+      \item \texttt{?}: Exit status
+      \item \texttt{-}: Current flags
+      \item \texttt{\$}: Process ID of the shell
+      \item \texttt{!}
+      \item \texttt{0}
+      \item \texttt{\_}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+%------------------------------------------------------------------------------
+\section{Shell Expansions}
 
 %------------------------------------------------------------------------------
 \section{About this presentation}
