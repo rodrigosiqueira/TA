@@ -1,0 +1,220 @@
+\documentclass[10pt, compress, aspectratio=169]{beamer}
+
+\usetheme[numbering=fraction, progressbar=none, titleformat=smallcaps]{metropolis}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[scale=2]{ccicons}
+\usepackage{url}
+\usepackage{relsize}
+\usepackage{wasysym}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\lstset{ %
+  backgroundcolor={},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=true,
+  breaklines=true,
+  captionpos=n,
+  commentstyle=\color{orange},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  frame=n,
+  keywordstyle=\color{orange},
+  language=bash,
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  numbers=left,
+  numbersep=3pt,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=2,
+  keywords={thrust,plus,device_vector, copy,transform,begin,end, copyin,
+  copyout, acc, \_\_global\_\_, void, int, float, main, threadIdx, blockIdx,
+  blockDim, if, else, malloc, NULL, cudaMalloc, cudaMemcpy, cudaSuccess,
+  cudaGetLastError, cudaDeviceSynchronize, cudaFree, cudaMemcpyDeviceToHost,
+  cudaMemcpyHostToDevice, const, data, independent, kernels, loop,
+  fprintf, stderr, cudaGetErrorString, EXIT_FAILURE, for, dim3},
+  otherkeywords={::, \#pragma, \#include, <<<,>>>, \&, \*, +, -, /, [, ], >, <}
+}
+
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+\graphicspath{{images/}}
+
+\title{Command Line Editing and Jobs}
+\author{\footnotesize Rodrigo Siqueira \\ {\scriptsize siqueira@ime.usp.br}}
+%\institute{\includegraphics[height=2cm]{imelogo}\\[0.2cm] Department of Computer Science \\ University of São Paulo}
+
+\begin{document}
+
+\maketitle
+
+%------------------------------------------------------------------------------
+\section{Introduction}
+\begin{frame}{Basic definitions}
+  \metroset{block=fill}
+  \begin{exampleblock}{Bases}
+    \begin{itemize}
+      \item C-(k): C means Ctrl and \textit{k} mean any key
+      \item M-(k): M means Meta character, usually, it is map to the ALT key
+        \begin{itemize}
+          \item If your ALT key is not map to M, you can type ESC then the key
+          \item You can map M to ALT in your system. Sometimes, you just have
+                to add \texttt{xterm*metaSendsEscape: true} in your
+                \texttt{.Xdefaults}
+        \end{itemize}
+      \item Bash use \textbf{Readline} library to handle the interaction, as a
+            result, it supports many useful commands for manipulating the text
+            you type in it.
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Essentials commands}
+
+\begin{frame}{Essentials}
+  \metroset{block=fill}
+  \begin{exampleblock}{Commands}
+    \begin{itemize}
+      \item \texttt{C-b}: Move one character backward
+      \item \texttt{C-f}: Move one character forward
+      \item \texttt{C-d}: Delete the character under the cursor
+      \item \texttt{C-u}: Clean the line
+      \item \texttt{C-a}: Move the cursor to the beginning
+      \item \texttt{C-e}: Move the cursor to the end of the line
+      \item \texttt{M-f}: Delete one \textit{word} forward
+      \item \texttt{M-b}: Delete one \textit{word} backward
+      \item \texttt{C-l}: Clean the screen
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Readline Killing Commands (CUT and PASTE)}
+  \metroset{block=fill}
+  \begin{exampleblock}{Commands}
+    \begin{itemize}
+      \item \texttt{C-k}: Cut from the cursor to the end of the line
+      \item \texttt{M-d}: Cut from the cursor forward one word
+      \item \texttt{C-w}: Cut from the cursor backward one word
+      \item \texttt{C-y}: Paste
+      \item \texttt{M-y}: Rotate the \textit{kill-ring}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Searching for commands in the history}
+  \metroset{block=fill}
+  \begin{exampleblock}{Commands}
+    \begin{itemize}
+      \item \texttt{C-r}: Search on history
+      \item \texttt{C-j}: Abort the search
+      \item \texttt{C-g}: Abort the search and restore the previous command
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+%------------------------------------------------------------------------------
+\section{Readline Files}
+
+\begin{frame}{Basic files to configure Readline}
+  \metroset{block=fill}
+  \begin{exampleblock}{About basic files}
+    \begin{itemize}
+      \item Readline reads from two files in the following order:
+        \begin{enumerate}
+          \item \texttt{/etc/inputrc}
+          \item \texttt{~/.inputrc}
+        \end{enumerate}
+      \item \texttt{C-x C-r}: Reloads inputrc files
+      \item Inputrc files has a basic syntax
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Inputrc file syntax}
+  \metroset{block=fill}
+  \begin{exampleblock}{Syntax}
+    \begin{itemize}
+      \item Comments: Lines beinning with a \texttt{\#}
+      \item Set variable: \texttt{set variable value}
+      \begin{enumerate}
+        \item \texttt{variable}: Variables name are defined by the Readline.
+              There is a numerous option for configure many different aspects
+              of the Readline. Take a look at the documentation to see all the
+              options
+        \item \texttt{value}: Each variable can define a different value,
+              in the documentation you can find the possible values per variable
+      \end{enumerate}
+      \item Key Binding:
+        \begin{enumerate}
+          \item \texttt{keyname: function-name}
+          \item \texttt{"keyseq": function-name}
+          \item Example: \texttt{\textbackslash{Control}-o: "dude..."}
+          \item Example: \texttt{"\textbackslash{C}-x\textbackslash{C}-r": "hey dude..."}
+        \end{enumerate}
+      \item Conditional: \texttt{\textdollar{}if
+            \textit{compare} ... \textdollar{}endif}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Job Control}
+
+\begin{frame}{Basic files to configure Readline}
+  \metroset{block=fill}
+  \begin{exampleblock}{Basic}
+    \begin{itemize}
+      \item Job control refers to the ability to selectively stop and continue
+            the process execution
+      \item Shell keep a table of processes
+      \item ID group
+      \begin{itemize}
+        \item \textbf{Foreground}
+        \item \textbf{Background}
+      \end{itemize}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Job Control Builtins and commands}
+  \metroset{block=fill}
+  \begin{exampleblock}{Basic}
+    \begin{itemize}
+      \item \texttt{C-z}: Put the current process in background
+      \item \texttt{\%}: Get the last processes put in background
+      \item \texttt{\%n}: Get the process with the number n
+      \item \texttt{\%-}: Current job
+      \item \texttt{bg [jobspec ...]}: Resume each suspended jobspec
+      \item \texttt{fg [jobspec]}: Resume the jobspec
+      \item \texttt{jobs [-lnprs] [jobspec]}: List active jobs
+      \item \texttt{kill [-s sigspec] [-n signum] [-sigspec] jobspec or pid}
+      \item \texttt{wait [-n] [jobspec or pid ...]}
+      \item \texttt{disown [-ar] [-h] [jobspec ... | pid ...]}
+      \item \texttt{suspend [-f]}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{About this presentation}
+\begin{frame}[standout]
+  % TODO: Improve it
+   \begin{center}\ccbysa\end{center}
+\end{frame}
+
+%TODO: Bibliography
+% break [n]: http://tldp.org/LDP/abs/html/loopcontrol.html
+% continue [n]: http://tldp.org/LDP/abs/html/loopcontrol.html
+% exec: http://wiki.bash-hackers.org/commands/builtin/exec
+% caller: http://wiki.bash-hackers.org/commands/builtin/caller
+% key num code: http://invisible-island.net/xterm/xterm-function-keys.html
+\maketitle
+
+\end{document}
