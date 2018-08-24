@@ -1,0 +1,262 @@
+\documentclass[10pt, compress, aspectratio=169]{beamer}
+
+\usetheme[numbering=fraction, progressbar=none, titleformat=smallcaps]{metropolis}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[scale=2]{ccicons}
+\usepackage{url}
+\usepackage{relsize}
+\usepackage{wasysym}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\lstset{ %
+  backgroundcolor={},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=true,
+  breaklines=true,
+  captionpos=n,
+  commentstyle=\color{orange},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  frame=n,
+  keywordstyle=\color{orange},
+  language=bash,
+  rulecolor=\color{black},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  numbers=left,
+  numbersep=3pt,
+  stepnumber=1,
+  stringstyle=\color{gray},
+  tabsize=2,
+  keywords={thrust,plus,device_vector, copy,transform,begin,end, copyin,
+  copyout, acc, \_\_global\_\_, void, int, float, main, threadIdx, blockIdx,
+  blockDim, if, else, malloc, NULL, cudaMalloc, cudaMemcpy, cudaSuccess,
+  cudaGetLastError, cudaDeviceSynchronize, cudaFree, cudaMemcpyDeviceToHost,
+  cudaMemcpyHostToDevice, const, data, independent, kernels, loop,
+  fprintf, stderr, cudaGetErrorString, EXIT_FAILURE, for, dim3},
+  otherkeywords={::, \#pragma, \#include, <<<,>>>, \&, \*, +, -, /, [, ], >, <}
+}
+
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+\graphicspath{{images/}}
+
+\title{O projeto Debian precisa de você!}
+\author{\footnotesize Rodrigo Siqueira \\ {\scriptsize rodrigosiqueiramelo@gmail.com} \\ {\scriptsize \url{http://siqueira.tech}} }
+\institute{\includegraphics[height=2cm]{debian}\\[0.2cm]}
+
+\begin{document}
+
+\maketitle
+
+%------------------------------------------------------------------------------
+\section{Introdução}
+\begin{frame}{Introdução}
+  \begin{figure}
+    \centering
+    \includegraphics[width=\linewidth,
+                     height=0.8\textheight,
+                     keepaspectratio]{want_you}
+    \caption{O projeto Debian quer você!}
+  \end{figure}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Utilizando o Debian}
+
+\begin{frame}{Utilizando o Debian}
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Utilizar o Debian já é uma contribuição! Ao instalar o Debian, você:}
+      \begin{itemize}
+        \item Estará testando o instalador
+        \item Ficará familiarizado com sistemas GNU/Linux
+      \end{itemize}
+  \end{exampleblock}
+
+  Existem boas opções para potencializar o uso do Debian como contribuição
+  para a comunidade:
+
+  \begin{itemize}
+    \item Habilitar a submissão do \textit{popularity-contest} para os pacotes
+          que você utiliza, isto permite que a comunidade saiba quais pacotes
+          são mais úteis e populares
+    \item Fazer upload de \textit{screenshots} de pacotes que você utiliza para
+          que outros usuários possam conhecer como um determinado software se
+          parece antes de utilizar ele
+  \end{itemize}
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Links importantes}
+    \begin{itemize}
+      \item \url{https://www.debian.org/CD}
+      \item \url{http://get.debian.net}
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Eventos}
+
+\begin{frame}{Eventos}
+  \begin{itemize}
+    \item Você pode ajudar com \textit{face pública} do Debian contribuindo com
+          o site
+    \item Auxiliar com a organização de eventos em todo o mundo
+    \item Ajudar a promover o Debian falando e demonstrando a distribuição
+    \item Você pode ajudar com a conferência anual do Debian! Existem várias
+          tarefas, tais quais: ajudar na gravação de vídeos, receber as pessoas
+          que chegam ao evento, auxiliar palestrantes, dentre outras tarefas.
+    \item Outro eventos: mini-DebConfs, Debian Day Parties, Release Parties,
+          Sprints de desenvolvimento, dentre outros.
+  \end{itemize}
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Links importantes}
+    \begin{itemize}
+      \item Debian Press Release: \url{https://www.debian.org/News}
+      \item Debian Project News: \url{https://www.debian.org/News/weekly}
+      \item Debian Bits, the Debian Blog: \url{https://bits.debian.org}
+      \item Notícias em português: \url{http://debianbrasil.org.br}
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Suporte ao Usuário}
+
+\begin{frame}{Suporte ao Usuário}
+  \begin{itemize}
+    \item Você já tem uma certa experiência com Debian? O que acha de ajudar
+          respondendo perguntas na lista de email? Esta sem dúvida é uma ótima
+          forma de contribuir
+    \item Ajudar o usuário no IRC também ajuda muito
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Testes e Bug Report}
+
+\begin{frame}{Testes e Bug Report}
+  \begin{itemize}
+    \item Testar o Debian e os seus programas. Se encontrar algum erro, reporte
+          o problema no Debian por meio de um relatório de erro para que os
+          desenvolvedores/mantenedores fiquem cientes do problema
+    \item Olhe os bugs abertos e tente reproduzir e descreva a sua experiência
+          ao tentar replicar
+  \end{itemize}
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Links importantes}
+    \begin{itemize}
+      \item Como enviar relatórios de erro:  \url{https://www.debian.org/Bugs/Reporting}
+      \item 7 dicas para enviar relatório de bug: \url{https://raphaelhertzog.com/go/bugreporting}
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Tradução}
+
+\begin{frame}{Tradução}
+  Você pode auxiliar com a tradução de aplicações ou informações relacionadas
+  ao Debian
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Links importantes}
+    \begin{itemize}
+      \item Página do time brasileiro: \url{https://wiki.debian.org/Brasil/Traduzir}
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Documentação}
+
+\begin{frame}{Documentação}
+  \begin{itemize}
+    \item Você pode ajudar contribuindo com a documentação oficial ou com
+          a Wiki do Debian. Alguns exemplos:
+      \begin{itemize}
+        \item Manuais
+        \item Tutoriais
+        \item HOWTOs
+        \item FAQs
+      \end{itemize}
+    \item Você pode categorizar pacotes no site debtags para que os usuários
+          possam encontrar o software que procuram com mais facilidade
+  \end{itemize}
+
+  \metroset{block=fill}
+  \begin{exampleblock}{Links importantes}
+    \begin{itemize}
+      \item \url{https://www.debian.org/doc}
+      \item \url{https://wiki.debian.org/Brasil/Documentos}
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Programação}
+
+\begin{frame}{Programação}
+  \begin{itemize}
+    \item Você pode ajudar rastreando, encontrando e consertando falhas de
+          segurança
+    \item Você também pode ajudar a melhorar pacotes, repositórios, imagens e
+          outras coisas
+    \item Você pode contribuir com aplicações que você já utiliza mandando
+          patches
+    \item Você pode ajudar a portar o Debian para outras arquiteturas
+    \item Você pode auxiliar com os software utilizados pelo Debian
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Jurídico}
+
+\begin{frame}{Jurídico}
+  Advogado(a)s podem ajudar muita a comunidade com questões legais
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Empacotamento}
+
+\begin{frame}{Empacotamento}
+  \begin{itemize}
+    \item Pode ajudar a manter pacotes fazendo parte de algum time
+    \item Você pode mandar patches com melhorias ou correções para mantenedores
+          de pacotes
+    \item Você pode adotar pacotes
+    \item Você pode empacotar aplicações novas
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{Doação}
+
+\begin{frame}{Doação}
+  Você pode doar equipamentos e serviços para o Debian
+\end{frame}
+
+%------------------------------------------------------------------------------
+\section{About this presentation}
+\begin{frame}[standout]
+    Este trabalho é derivado da apresentação "O projeto Debian quer você!" de
+    Paulo Henrique de Lima Santana
+   \begin{center}\ccbysa\end{center}
+\end{frame}
+
+\maketitle
+
+\end{document}
