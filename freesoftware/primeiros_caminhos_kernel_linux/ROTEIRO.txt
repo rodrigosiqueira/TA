@@ -1,0 +1,20 @@
+Parte 1
+
+1 - Explicar o kernel linux => Mostrar que o Kernel não é um bloco único
+2 - Dentro desses blocos mostrar quem são os maintainers
+3 - Linux foundation e repositórios oficiais
+4 - Visão geral do processo de desenvolvimento
+ * Falar de como gerar patches
+ * Falar do envio dos patches no corpo do email
+ * Mensagens de commit
+5 - Sobre o código
+	* Code style
+6 - Listas de emails
+ * Configurando
+7 - IRC
+
+Parte 2
+1 - Compilando o Kernel
+2 - Instalando o Kernel
+3 - Compilando o Módulo
+4 - Instalando o Módulo
